@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6a4d8b157de6d4f990b539f170c4ad, type: 3}
+  m_Name: playerWorker
+  m_EditorClassIdentifier: 
+  isPlayerUnit: 0
+  type: 0
+  name: 
+  unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
+  cost: 50
+  meleeAttack: 2.5
+  meleeArmorPiercing: 0
+  rangedAttack: 0
+  rangedArmorPiercing: 0
+  precission: 0
+  range: 0
+  shootingSpeed: 0
+  armor: 0
+  defence: 0
+  health: 25
+  speed: 1
