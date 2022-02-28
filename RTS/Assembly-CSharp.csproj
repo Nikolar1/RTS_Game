@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\_Scripts\UnitHandler.cs" />
     <Compile Include="Assets\_Scripts\Unit.cs" />
+    <Compile Include="Assets\_Scripts\InputHandler.cs" />
+    <Compile Include="Assets\_Scripts\PlayerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
