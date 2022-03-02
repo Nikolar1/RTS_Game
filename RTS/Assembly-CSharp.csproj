@@ -61,6 +61,7 @@
     <Compile Include="Assets\_Scripts\InputHandler.cs" />
     <Compile Include="Assets\_Scripts\Unit.cs" />
     <Compile Include="Assets\_Scripts\MultiSelect.cs" />
+    <Compile Include="Assets\_Scripts\PlayerUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

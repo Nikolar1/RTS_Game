@@ -30,6 +30,7 @@ namespace NR.RTS.InputManager
 
         public static void DrawScreenRectBorder(Rect rect, float thickness, Color color)
         {
+            //Drawing 4 diffrent thin rectangles for each side of the main one
             //Top
             DrawScreenRect(new Rect(rect.xMin, rect.yMin, rect.width, thickness), color);
             //Bottom
@@ -62,7 +63,6 @@ namespace NR.RTS.InputManager
             pos2.z = 0;
             Vector3 min = Vector2.Min(pos1, pos2);
             Vector3 max = Vector2.Max(pos1, pos2);
-            Debug.Log(min + " " + max);
             Bounds bounds = new Bounds();
             bounds.SetMinMax(min, max);
             return bounds;

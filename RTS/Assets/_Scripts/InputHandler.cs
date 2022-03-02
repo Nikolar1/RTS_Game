@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using NR.RTS.Units.Player;
 
 namespace NR.RTS.InputManager {
     public class InputHandler : MonoBehaviour
@@ -30,27 +31,31 @@ namespace NR.RTS.InputManager {
             }
         }
 
-
+        private RaycastHit2D checkForHit()
+        {
+            mousePosition = Input.mousePosition;
+            //Get input position
+            Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            return Physics2D.Raycast(worldPoint, Vector2.zero);
+        }
 
         public void HandleUnitMovment()
         {
 
             if (Input.GetMouseButtonDown(0))
             {
-                mousePosition = Input.mousePosition;
-                //Get input position
-                Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 //Check if something was hit
-                RaycastHit2D hit = Physics2D.Raycast(worldPoint, Vector2.zero);
+                RaycastHit2D hit = checkForHit();
                 if (hit.collider != null)
                 {
                     LayerMask layerHit = hit.transform.gameObject.layer;
 
                     switch (layerHit.value)
                     {
-                        case 8: // Layer 8 has been designated as the unit layer
+                        case 8: // Layer 8 has been designated as the player unit layer
                             //If neither of the Control keys is held down sends false for canMultiselect
                             SelectUnit(hit.transform, Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl));
+                            isDragging = true;
                             break;
                         default:
                             //Delete selection if no unit is pressed and neither of the Control keys is held down
@@ -61,8 +66,9 @@ namespace NR.RTS.InputManager {
                 }
                 else if(!Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
                 {
-                    //Delete selection if no unit is pressed and neither of the Control keys is held down
+                    //Set isDragging to true to be used in the drag selection
                     isDragging = true;
+                    //Delete selection if no unit is pressed and neither of the Control keys is held down
                     DeselectUnits();
                 }
                 else
@@ -85,6 +91,33 @@ namespace NR.RTS.InputManager {
                     }
                 }
                 isDragging = false;
+            }
+
+            if (Input.GetMouseButtonDown(1) && HaveSelectedUnits())
+            {
+                //Check if something was hit
+                RaycastHit2D hit = checkForHit();
+                if (hit.collider != null)
+                {
+                    LayerMask layerHit = hit.transform.gameObject.layer;
+
+                    switch (layerHit.value)
+                    {
+                        case 8: //Player unit
+                            
+                            break;
+                        case 9: //Enemy unit
+
+                            break;
+                        default:
+                            foreach(Transform unit in selectedUnits)
+                            {
+                                PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+                                pU.MoveUnit(hit.point);
+                            }
+                            break;
+                    }
+                }
             }
         }
 
@@ -119,9 +152,16 @@ namespace NR.RTS.InputManager {
             Bounds viewPortBounds = MultiSelect.GetViewPortBounds(camera, mousePosition, Input.mousePosition);
             Vector3 unit = camera.WorldToViewportPoint(tf.position);
             unit.z = 0;
-            Debug.Log(unit);
-
             return viewPortBounds.Contains(unit);
+        }
+
+        private bool HaveSelectedUnits()
+        {
+            if (selectedUnits.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
