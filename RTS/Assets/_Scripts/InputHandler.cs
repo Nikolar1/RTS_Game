@@ -112,10 +112,22 @@ namespace NR.RTS.InputManager {
                         default:
                             foreach(Transform unit in selectedUnits)
                             {
+                                Debug.Log("caooo3");
                                 PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+                                
                                 pU.MoveUnit(hit.point);
                             }
                             break;
+                    }
+                }
+                else
+                {
+                    foreach (Transform unit in selectedUnits)
+                    {
+                        Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                        PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+
+                        pU.MoveUnit(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                     }
                 }
             }
