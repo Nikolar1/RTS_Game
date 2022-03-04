@@ -12,12 +12,12 @@ namespace NR.RTS.Units.Player {
     public class PlayerUnit : MonoBehaviour
     {
         private Vector2 target;
+        private bool hasTarget = false;
 
         public float speed = 200f;
-        public float nextWaypointDistance = 3f;
+        public float nextWaypointDistance = 1f;
         private Path path;
         private int currentWaypoint = 0;
-        private bool reachedEndOfPath = false;
         private Seeker seeker;
         private Rigidbody2D rb;
 
@@ -25,31 +25,30 @@ namespace NR.RTS.Units.Player {
         {
             seeker = GetComponent<Seeker>();
             rb = GetComponent<Rigidbody2D>();
-            InvokeRepeating("UpdatePath", 0f, .5f);
-            target = rb.position;
+            InvokeRepeating("UpdatePath", 0f, 0.5f);
         }
 
         private void FixedUpdate()
         {
+
             if(path == null)
             {
                 return;
             }
             if (currentWaypoint >= path.vectorPath.Count)
             {
-                reachedEndOfPath = true;
-                if(Vector2.Distance(rb.position, target) < 0.1)
+                //hasTarget = false;
+                if (Vector2.Distance(rb.position, target) <= 0.1)
                 {
                     rb.velocity = Vector2.zero;
                 }
                 return;
             }
-            else
-            {
-                reachedEndOfPath = false;
-            }
+            Vector2 waypoint = new Vector2();
+            waypoint.x = path.vectorPath[currentWaypoint].x;
+            waypoint.y = path.vectorPath[currentWaypoint].y;
 
-            Vector2 direction = ((Vector2)path.vectorPath[currentWaypoint] - rb.position).normalized;
+            Vector2 direction = (waypoint - rb.position).normalized;
             Vector2 force = direction * speed * Time.deltaTime;
             rb.velocity = force;
             float distance = Vector2.Distance(rb.position, path.vectorPath[currentWaypoint]);
@@ -70,16 +69,19 @@ namespace NR.RTS.Units.Player {
 
         public void UpdatePath()
         {
-
-            if (seeker.IsDone() && (Vector2.Distance(rb.position, target) > 1))
+            if (hasTarget)
             {
-                seeker.StartPath(rb.position, target, OnPathComplete);
+                if (seeker.IsDone() && (Vector2.Distance(rb.position,target)>0.5))
+                {
+                    seeker.StartPath(rb.position, target, OnPathComplete);
+                }
             }
         }
 
         public void MoveUnit(Vector2 _destination)
         {
             target = _destination;
+            hasTarget = true;
         }
 
     }

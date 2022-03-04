@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  nextWaypointDistance: 3
+  nextWaypointDistance: 1
 --- !u!50 &6947952037230194248
 Rigidbody2D:
   serializedVersion: 4
