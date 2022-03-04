@@ -28,6 +28,7 @@ namespace NR.RTS.Units.Player {
             InvokeRepeating("UpdatePath", 0f, 0.5f);
         }
 
+
         private void FixedUpdate()
         {
 
@@ -80,8 +81,9 @@ namespace NR.RTS.Units.Player {
 
         public void MoveUnit(Vector2 _destination)
         {
-            target = _destination;
-            hasTarget = true;
+             target = _destination;
+             hasTarget = true;
+
         }
 
     }
