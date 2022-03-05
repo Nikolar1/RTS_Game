@@ -125,9 +125,9 @@ namespace NR.RTS.InputManager {
                     foreach (Transform unit in selectedUnits)
                     {
                         Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                        PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+                        PlayerDestinationSetter pU = unit.gameObject.GetComponent<PlayerDestinationSetter>();
 
-                        pU.MoveUnit(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+                        pU.SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                     }
                 }
             }

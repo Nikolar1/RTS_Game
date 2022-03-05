@@ -5,6 +5,10 @@ using UnityEngine.AI;
 using Pathfinding;
 using System;
 
+//Depreciated script, used for moving the units
+//which is now done with scripts from A* Pathfinding project
+//and PlayerDestinationSetter script
+
 namespace NR.RTS.Units.Player {
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Seeker))]

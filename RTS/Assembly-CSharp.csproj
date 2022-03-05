@@ -62,6 +62,7 @@
     <Compile Include="Assets\_Scripts\InputHandler.cs" />
     <Compile Include="Assets\_Scripts\Unit.cs" />
     <Compile Include="Assets\_Scripts\MultiSelect.cs" />
+    <Compile Include="Assets\_Scripts\PlayerDestinationSetter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -726,17 +727,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{476ECFE9-7488-4E60-E336-C0BCADD08AE4}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
+    <ProjectReference Include="PackageToolsEditor.csproj">
+      <Project>{00452A33-F79D-5608-7316-F72C42F17A0C}</Project>
+      <Name>PackageToolsEditor</Name>
     </ProjectReference>
     <ProjectReference Include="AstarPathfindingProject.csproj">
       <Project>{937E76FC-6857-BF20-DEA0-E2EDAE67BA9E}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
-    <ProjectReference Include="PackageToolsEditor.csproj">
-      <Project>{00452A33-F79D-5608-7316-F72C42F17A0C}</Project>
-      <Name>PackageToolsEditor</Name>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{476ECFE9-7488-4E60-E336-C0BCADD08AE4}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
