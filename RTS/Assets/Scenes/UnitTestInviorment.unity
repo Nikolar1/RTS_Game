@@ -1118,6 +1118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerUnits: {fileID: 1222472656}
+  enemyUnits: {fileID: 1208168042}
 --- !u!1 &1861550751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,6 +1149,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a4c12173426bb49b4f9ed2603e245e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  archer: {fileID: 11400000, guid: 4ab394b8e008fc34ba66da71f1b6d8ef, type: 2}
+  arqubasier: {fileID: 11400000, guid: cd9a7429f9f087d4fa57b1a433c1136a, type: 2}
+  horseman: {fileID: 11400000, guid: 836b061c184374c45816d2554b2b0919, type: 2}
+  slinger: {fileID: 11400000, guid: abd6a12a6d96afa45ac6ea796f373f00, type: 2}
+  spearman: {fileID: 11400000, guid: c3c98e916d9e55743b69143f619f727b, type: 2}
+  swordsman: {fileID: 11400000, guid: 16ad743b416fa8f46b05128704f19652, type: 2}
+  worker: {fileID: 11400000, guid: be3e2ac7bed35c54192fa52fd6e32416, type: 2}
 --- !u!4 &1861550753
 Transform:
   m_ObjectHideFlags: 0

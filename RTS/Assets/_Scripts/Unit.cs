@@ -17,26 +17,34 @@ namespace NR.RTS.Units {
             Horseman
         };
 
-        public bool isPlayerUnit;
-
+        [Space(15)]
+        [Header("Unit Settings")]
         public unitType type;
-
         public new string name;
-
         public GameObject unitPrefab;
 
+        [Space(15)]
+        [Header("Unit Base Stats")]
+        [Space(40)]
         public int cost;
+        public int armor;
+        public int defence;
+        public double health;
+        public double speed;
+
+        [Space(15)]
+        [Header("Unit Melee Stats")]
         public double meleeAttack;
         public int meleeArmorPiercing;
+
+        [Space(15)]
+        [Header("Unit Ranged Stats")]
         public double rangedAttack;
         public int rangedArmorPiercing;
         public int precission;
         public int range;
         public int shootingSpeed;
-        public int armor;
-        public int defence;
-        public double health;
-        public double speed;
+        
 
     }
 }

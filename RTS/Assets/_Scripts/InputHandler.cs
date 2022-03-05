@@ -113,9 +113,9 @@ namespace NR.RTS.InputManager {
                             foreach(Transform unit in selectedUnits)
                             {
                                 Debug.Log("caooo3");
-                                PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
-                                
-                                pU.MoveUnit(hit.point);
+                                VectorDestinationSetter pU = unit.gameObject.GetComponent<VectorDestinationSetter>();
+
+                                pU.SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                             }
                             break;
                     }
@@ -125,7 +125,7 @@ namespace NR.RTS.InputManager {
                     foreach (Transform unit in selectedUnits)
                     {
                         Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-                        PlayerDestinationSetter pU = unit.gameObject.GetComponent<PlayerDestinationSetter>();
+                        VectorDestinationSetter pU = unit.gameObject.GetComponent<VectorDestinationSetter>();
 
                         pU.SetDestination(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                     }

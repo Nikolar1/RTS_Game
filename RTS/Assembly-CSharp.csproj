@@ -57,12 +57,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\_Scripts\PlayerUnit.cs" />
+    <Compile Include="Assets\_Scripts\PlayerUnitOld.cs" />
     <Compile Include="Assets\_Scripts\UnitHandler.cs" />
     <Compile Include="Assets\_Scripts\InputHandler.cs" />
     <Compile Include="Assets\_Scripts\Unit.cs" />
+    <Compile Include="Assets\_Scripts\VectorDestinationSetter.cs" />
     <Compile Include="Assets\_Scripts\MultiSelect.cs" />
-    <Compile Include="Assets\_Scripts\PlayerDestinationSetter.cs" />
+    <Compile Include="Assets\_Scripts\PlayerUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
