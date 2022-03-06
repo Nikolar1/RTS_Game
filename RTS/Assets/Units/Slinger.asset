@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a4d8b157de6d4f990b539f170c4ad, type: 3}
   m_Name: Slinger
   m_EditorClassIdentifier: 
-  isPlayerUnit: 0
   type: 4
   name: 
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
   cost: 75
+  armor: 0
+  defence: 0
+  health: 25
+  speed: 1
+  range: 10
   meleeAttack: 2.5
   meleeArmorPiercing: 0
   rangedAttack: 2.5
   rangedArmorPiercing: 0
   precission: 70
-  range: 10
-  shootingSpeed: 10
-  armor: 0
-  defence: 0
-  health: 25
-  speed: 1
+  shootingSpeed: 0.5

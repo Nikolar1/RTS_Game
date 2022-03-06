@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a4d8b157de6d4f990b539f170c4ad, type: 3}
   m_Name: Archer
   m_EditorClassIdentifier: 
-  isPlayerUnit: 0
   type: 3
   name: 
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
   cost: 100
+  armor: 0
+  defence: 20
+  health: 50
+  speed: 1
+  range: 8
   meleeAttack: 4
   meleeArmorPiercing: 0
   rangedAttack: 8
   rangedArmorPiercing: 70
   precission: 90
-  range: 8
-  shootingSpeed: 15
-  armor: 0
-  defence: 20
-  health: 50
-  speed: 1
+  shootingSpeed: 0.25

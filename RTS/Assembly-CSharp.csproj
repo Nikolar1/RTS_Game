@@ -56,14 +56,15 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\_Scripts\PlayerManager.cs" />
-    <Compile Include="Assets\_Scripts\PlayerUnitOld.cs" />
-    <Compile Include="Assets\_Scripts\UnitHandler.cs" />
-    <Compile Include="Assets\_Scripts\InputHandler.cs" />
-    <Compile Include="Assets\_Scripts\Unit.cs" />
-    <Compile Include="Assets\_Scripts\VectorDestinationSetter.cs" />
-    <Compile Include="Assets\_Scripts\MultiSelect.cs" />
-    <Compile Include="Assets\_Scripts\PlayerUnit.cs" />
+    <Compile Include="Assets\_Scripts\Player\PlayerManager.cs" />
+    <Compile Include="Assets\_Scripts\Units\Player\PlayerUnit.cs" />
+    <Compile Include="Assets\_Scripts\Units\Player\PlayerUnitOld.cs" />
+    <Compile Include="Assets\_Scripts\Units\UnitHandler.cs" />
+    <Compile Include="Assets\_Scripts\InputManager\InputHandler.cs" />
+    <Compile Include="Assets\_Scripts\Units\Unit.cs" />
+    <Compile Include="Assets\_Scripts\Units\VectorDestinationSetter.cs" />
+    <Compile Include="Assets\_Scripts\InputManager\MultiSelect.cs" />
+    <Compile Include="Assets\_Scripts\Units\Enemy\EnemyUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

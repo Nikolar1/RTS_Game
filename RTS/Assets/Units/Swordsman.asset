@@ -12,19 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b6a4d8b157de6d4f990b539f170c4ad, type: 3}
   m_Name: Swordsman
   m_EditorClassIdentifier: 
-  isPlayerUnit: 0
   type: 2
   name: 
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
   cost: 200
+  armor: 7
+  defence: 50
+  health: 50
+  speed: 0.3
+  range: 0
   meleeAttack: 20
   meleeArmorPiercing: 50
   rangedAttack: 0
   rangedArmorPiercing: 0
   precission: 0
-  range: 0
   shootingSpeed: 0
-  armor: 7
-  defence: 50
-  health: 50
-  speed: 0.3
