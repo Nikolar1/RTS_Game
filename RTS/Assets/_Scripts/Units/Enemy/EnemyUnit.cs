@@ -57,7 +57,6 @@ namespace NR.RTS.Units.Enemy
             }
             else
             {
-                
                 Attack();
                 MoveToAggroTarget();
             }
@@ -65,7 +64,10 @@ namespace NR.RTS.Units.Enemy
 
         private void LateUpdate()
         {
-            HandleHealth();
+            if(Combat.HandleHealth(healthBarAmount, currentHealth, health))
+            {
+                Die();
+            }
         }
         private void CheckForEnemyTargets()
         {
@@ -95,22 +97,16 @@ namespace NR.RTS.Units.Enemy
 
         private void Attack()
         {
-            
-            if (currentAttackCooldown <= 0 && distance <= 1.2f + range)
+            float temp = Combat.Attack(currentAttackCooldown, distance, range, aggroUnit, meleeAttack, meleeArmorPiercing, attackCooldown, shootingSpeed);
+            if (temp >= 0)
             {
-                aggroUnit.TakeDamage(meleeAttack, meleeArmorPiercing);
-                currentAttackCooldown = attackCooldown + attackCooldown * shootingSpeed;
+                currentAttackCooldown = temp;
             }
         }
 
         public void TakeDamage(float damage, int armorPiercing)
         {
-            float totalDamage = (damage - (armor * ((1f * armorPiercing) / 100))) * ((1f * defence) / 100);
-            if (totalDamage < 0)
-            {
-                totalDamage = 0;
-            }
-            currentHealth -= totalDamage;
+            currentHealth = Combat.TakeDamage(damage, armorPiercing, armor, defence, currentHealth);
         }
 
         private void MoveToAggroTarget()
@@ -132,15 +128,6 @@ namespace NR.RTS.Units.Enemy
             {
                 hasAggro = false;
                 vDS.RemoveDestination();
-            }
-        }
-
-        private void HandleHealth()
-        {
-            healthBarAmount.fillAmount = currentHealth / health;
-            if (currentHealth <= 0)
-            {
-                Die();
             }
         }
 

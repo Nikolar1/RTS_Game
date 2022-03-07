@@ -44,7 +44,10 @@ namespace NR.RTS.Units.Player
 
         private void Update()
         {
-            HandleHealth();
+            if (Combat.HandleHealth(healthBarAmount, currentHealth, health))
+            {
+                Die();
+            }
         }
 
         public void MoveUnit(Vector2 destination)
@@ -54,12 +57,7 @@ namespace NR.RTS.Units.Player
 
         public void TakeDamage(float damage, int armorPiercing)
         {
-            float totalDamage = (damage - (armor * ((1f * armorPiercing) / 100))) * ((100f - defence) / 100);
-            if (totalDamage < 0)
-            {
-                totalDamage = 0;
-            }
-            currentHealth -= totalDamage;
+            currentHealth = Combat.TakeDamage(damage, armorPiercing, armor, defence, currentHealth);
         }
 
         public void MoveUnit(Transform target)
@@ -68,15 +66,6 @@ namespace NR.RTS.Units.Player
             hasTarget = true;
             //1.2 is the distance needed for the unit to stop just as it collides with the enemy
             vDS.SetDestination(target, 1.2f+range);
-        }
-
-        private void HandleHealth()
-        {
-            healthBarAmount.fillAmount = currentHealth / health;
-            if (currentHealth<=0)
-            {
-                Die();
-            }
         }
 
         private void Die()
