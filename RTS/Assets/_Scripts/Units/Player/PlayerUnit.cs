@@ -52,6 +52,7 @@ namespace NR.RTS.Units.Player
 
         public void MoveUnit(Vector2 destination)
         {
+            hasTarget = false;
             vDS.SetDestination(destination);
         }
 
