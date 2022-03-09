@@ -65,8 +65,15 @@
     <Compile Include="Assets\_Scripts\InputManager\InputHandler.cs" />
     <Compile Include="Assets\_Scripts\Units\Unit.cs" />
     <Compile Include="Assets\_Scripts\Units\VectorDestinationSetter.cs" />
-    <Compile Include="Assets\_Scripts\InputManager\MultiSelect.cs" />
     <Compile Include="Assets\_Scripts\Buildings\BasicBuilding.cs" />
+    <Compile Include="Assets\_Scripts\InputManager\MultiSelect.cs" />
+    <Compile Include="Assets\_Scripts\Buildings\BuildingStatTypes.cs" />
+    <Compile Include="Assets\_Scripts\Buildings\BuildingActions.cs" />
+    <Compile Include="Assets\_Scripts\Buildings\Player\PlayerBuilding.cs" />
+    <Compile Include="Assets\_Scripts\Buildings\BuildingHandler.cs" />
+    <Compile Include="Assets\_Scripts\Interactables\Interactable.cs" />
+    <Compile Include="Assets\_Scripts\Interactables\IBuilding.cs" />
+    <Compile Include="Assets\_Scripts\Interactables\IUnit.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

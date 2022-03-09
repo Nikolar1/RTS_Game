@@ -11,6 +11,9 @@ namespace NR.RTS.InputManager {
         private RaycastHit2D hit;
 
         public List<Transform> selectedUnits = new List<Transform>();
+        public Transform selectedBuilding = null;
+
+        public LayerMask interactableLayer = new LayerMask();
 
         private bool isDragging = false;
 
@@ -19,10 +22,6 @@ namespace NR.RTS.InputManager {
         private void Awake()
         {
             instance = this;
-        }
-        // Start is called before the first frame update
-        void Start()
-        {
         }
 
         private void OnGUI()
@@ -110,7 +109,11 @@ namespace NR.RTS.InputManager {
                     switch (layerHit.value)
                     {
                         case 8: //Player unit
-                            
+                            foreach (Transform unit in selectedUnits)
+                            {
+                                PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+                                pU.MoveUnit(hit.transform, true);
+                            }
                             break;
                         case 9: //Enemy unit
                             foreach (Transform unit in selectedUnits)

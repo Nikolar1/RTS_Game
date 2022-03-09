@@ -28,7 +28,11 @@ namespace NR.RTS.Units
         }
         public static float Attack(float currentAttackCooldown, float distance, float range, Player.PlayerUnit aggroUnit, float meleeAttack, int meleeArmorPiercing, float attackCooldown, float shootingSpeed)
         {
-            //1.4 is set as the base range because  the distance might be greater than 1.2 when the units meet
+            if(aggroUnit == null)
+            {
+                return -2;
+            }
+            //1.4 is set as the base range because  the distance might be greater than 1.2 when the units meet diagonaly
             if (currentAttackCooldown <= 0 && distance <= 1.4f + range)
             {
                 aggroUnit.TakeDamage(meleeAttack, meleeArmorPiercing);

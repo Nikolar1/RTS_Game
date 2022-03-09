@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7396476715808513658}
   - component: {fileID: 7396476715808513657}
   - component: {fileID: 7396476715808513659}
+  - component: {fileID: 7436942891291477310}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -110,6 +111,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &7436942891291477310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396476715808513656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89df775bc3c53b34fabd137a5f031757, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    health: 0
+    attack: 0
+    range: 0
+    shootingSpeed: 0
+    armorPiercing: 0
+    precission: 0
 --- !u!1 &7396476716442766905
 GameObject:
   m_ObjectHideFlags: 0

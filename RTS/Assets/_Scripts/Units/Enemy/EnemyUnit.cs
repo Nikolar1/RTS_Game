@@ -97,10 +97,22 @@ namespace NR.RTS.Units.Enemy
 
         private void Attack()
         {
+            if (aggroTarget == null)
+            {
+                hasAggro = false;
+                vDS.RemoveDestination();
+                return;
+            }
+            distance = Vector2.Distance(aggroTarget.position, transform.position);
             float temp = Combat.Attack(currentAttackCooldown, distance, range, aggroUnit, meleeAttack, meleeArmorPiercing, attackCooldown, shootingSpeed);
             if (temp >= 0)
             {
                 currentAttackCooldown = temp;
+            }else if( temp == -2)
+            {
+                hasAggro = false;
+                vDS.RemoveDestination();
+                return;
             }
         }
 

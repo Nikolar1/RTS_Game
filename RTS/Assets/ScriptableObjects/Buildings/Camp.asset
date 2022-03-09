@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5087b25d523419c4f9a8a5e73cf3da2c, type: 3}
+  m_Name: Camp
+  m_EditorClassIdentifier: 
+  type: 0
+  name: Camp
+  buildingPrefab: {fileID: 7396476715808513656, guid: 643be82f78b172341b74598e3ac0e039, type: 3}
+  Units:
+    Units:
+    - {fileID: 11400000, guid: be3e2ac7bed35c54192fa52fd6e32416, type: 2}
+    - {fileID: 11400000, guid: abd6a12a6d96afa45ac6ea796f373f00, type: 2}
+  baseStats:
+    health: 5000
+    attack: 8
+    range: 8
+    shootingSpeed: 0.25
+    armorPiercing: 70
+    precission: 90

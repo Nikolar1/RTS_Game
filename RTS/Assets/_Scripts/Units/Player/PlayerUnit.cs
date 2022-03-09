@@ -56,18 +56,25 @@ namespace NR.RTS.Units.Player
             vDS.SetDestination(destination);
         }
 
+        public void MoveUnit(Transform target, bool isPlayerOwnedTarget = false)
+        {
+            if (isPlayerOwnedTarget)
+            {
+                //if the target is player owned unit will follow and stop just as it collides
+                vDS.SetDestination(target, 1.2f);
+            }
+            this.target = target;
+            hasTarget = true;
+            //1.2 is the distance needed for the unit to stop just as it collides with the enemy
+            vDS.SetDestination(target, 1.2f + range);
+        }
+
         public void TakeDamage(float damage, int armorPiercing)
         {
             currentHealth = Combat.TakeDamage(damage, armorPiercing, armor, defence, currentHealth);
         }
 
-        public void MoveUnit(Transform target)
-        {
-            this.target = target;
-            hasTarget = true;
-            //1.2 is the distance needed for the unit to stop just as it collides with the enemy
-            vDS.SetDestination(target, 1.2f+range);
-        }
+
 
         private void Die()
         {
