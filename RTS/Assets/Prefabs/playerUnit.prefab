@@ -100,6 +100,7 @@ GameObject:
   - component: {fileID: 6601127201722272484}
   - component: {fileID: 1483278570189424853}
   - component: {fileID: 4887187260286665598}
+  - component: {fileID: 2212077525741646272}
   m_Layer: 8
   m_Name: playerUnit
   m_TagString: Untagged
@@ -342,6 +343,8 @@ MonoBehaviour:
   precission: 0
   range: 0
   shootingSpeed: 0
+  attackCooldown: 0
+  currentAttackCooldown: 0
   unitDisplay: {fileID: 3646947717195092947}
   healthBarAmount: {fileID: 2028428879893286161}
   currentHealth: 0
@@ -359,6 +362,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &2212077525741646272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5222890308719365078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecb8413eed75fae46b8ae8675d9080fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteracting: 0
+  highlight: {fileID: 3046109689263000605}
 --- !u!1001 &7857454852151494756
 PrefabInstance:
   m_ObjectHideFlags: 0

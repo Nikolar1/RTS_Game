@@ -23,7 +23,7 @@ namespace NR.RTS.Units {
         public void Start()
         {
             eUnitLayer = LayerMask.NameToLayer("EnemyUnits");
-            pUnitLayer = LayerMask.NameToLayer("PlayerUnits");
+            pUnitLayer = LayerMask.NameToLayer("Interactables");
         }
 
         public Unit GetUnit(string type)

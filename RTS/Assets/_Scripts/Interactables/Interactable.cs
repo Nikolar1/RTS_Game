@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace NR.RTS.Interactable
 {
-    public class Interactable : MonoBehaviour
+    public abstract class Interactable : MonoBehaviour
     {
         public bool isInteracting = false;
         public GameObject highlight = null;

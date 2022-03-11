@@ -39,7 +39,7 @@ namespace NR.RTS.InputManager {
             mousePosition = Input.mousePosition;
             //Get input position
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            return Physics2D.Raycast(worldPoint, Vector2.zero);
+            return Physics2D.Raycast(worldPoint, Vector2.zero, 100, interactableLayer);
         }
 
         public void HandleUnitMovment()
@@ -51,20 +51,13 @@ namespace NR.RTS.InputManager {
                 RaycastHit2D hit = checkForHit();
                 if (hit.collider != null)
                 {
-                    LayerMask layerHit = hit.transform.gameObject.layer;
-
-                    switch (layerHit.value)
+                    if (addedUnit(hit.transform, Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
                     {
-                        case 8: // Layer 8 has been designated as the player unit layer
-                            //If neither of the Control keys is held down sends false for canMultiselect
-                            SelectUnit(hit.transform, Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl));
-                            isDragging = true;
-                            break;
-                        default:
-                            //Delete selection if no unit is pressed and neither of the Control keys is held down
-                            isDragging = true;
-                            DeselectUnits();
-                            break;
+
+                    }
+                    else if (addedBuilding(hit.transform))
+                    {
+
                     }
                 }
                 else if(!Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl))
@@ -89,7 +82,7 @@ namespace NR.RTS.InputManager {
                         if (isWithinSelectionBounds(unit))
                         {
                             
-                            SelectUnit(unit, true);
+                            addedUnit(unit, true);
                         }
                     }
                 }
@@ -143,23 +136,18 @@ namespace NR.RTS.InputManager {
             }
         }
 
-        private void SelectUnit(Transform unit, bool canMultiselect = false)
-        {
-            if (!canMultiselect)
-            {
-                DeselectUnits();
-            }
-            selectedUnits.Add(unit);
-            //Sets an object called Highlight on the unit
-            unit.Find("Highlight").gameObject.SetActive(true);
-        }
-
         private void DeselectUnits()
         {
+            if (selectedBuilding)
+            {
+                selectedBuilding.gameObject.GetComponent<Interactable.IBuilding>().OnInteractExit();
+                selectedBuilding = null;
+            }
             for (int i = 0; i < selectedUnits.Count; i++)
             {
                 //Sets an object called Highlight on all seleted units to inactive
-                selectedUnits[i].Find("Highlight").gameObject.SetActive(false);
+                //selectedUnits[i].Find("Highlight").gameObject.SetActive(false);
+                selectedUnits[i].gameObject.GetComponent<Interactable.IUnit>().OnInteractExit();
             }
             selectedUnits.Clear();
         }
@@ -184,6 +172,41 @@ namespace NR.RTS.InputManager {
                 return true;
             }
             return false;
+        }
+
+        private Interactable.IUnit addedUnit(Transform tf, bool canMultiselect = false)
+        {
+            Interactable.IUnit iUnit = tf.GetComponent<Interactable.IUnit>();
+            if (iUnit)
+            {
+                if (!canMultiselect)
+                {
+                    DeselectUnits();
+                }
+                selectedUnits.Add(iUnit.gameObject.transform);
+                iUnit.OnInteractEnter();
+                return iUnit;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        private Interactable.IBuilding addedBuilding(Transform tf)
+        {
+            Interactable.IBuilding iBuilding = tf.GetComponent<Interactable.IBuilding>();
+            if (iBuilding)
+            {
+                DeselectUnits();
+                selectedBuilding = iBuilding.gameObject.transform;
+                iBuilding.OnInteractEnter();
+                return iBuilding;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
