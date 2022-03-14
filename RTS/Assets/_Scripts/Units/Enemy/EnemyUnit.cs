@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace NR.RTS.Units.Enemy
 {
     [RequireComponent(typeof(VectorDestinationSetter))]
-    public class EnemyUnit : MonoBehaviour
+    public class EnemyUnit : MonoBehaviour, Damageable
     {
         //Distance at which the enemy will start attacking
         private const float aggroDistance = 11;

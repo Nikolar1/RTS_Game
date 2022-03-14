@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace NR.RTS.Units.Player
 {
     [RequireComponent(typeof(VectorDestinationSetter))]
-    public class PlayerUnit : MonoBehaviour
+    public class PlayerUnit : MonoBehaviour, Damageable
     {
         public int cost;
         public int armor;
@@ -44,6 +44,15 @@ namespace NR.RTS.Units.Player
 
         private void Update()
         {
+            currentAttackCooldown -= Time.deltaTime;
+            if (hasTarget)
+            {
+                Attack();
+            }
+        }
+
+        private void LateUpdate()
+        {
             if (Combat.HandleHealth(healthBarAmount, currentHealth, health))
             {
                 Die();
@@ -56,15 +65,18 @@ namespace NR.RTS.Units.Player
             vDS.SetDestination(destination);
         }
 
-        public void MoveUnit(Transform target, bool isPlayerOwnedTarget = false)
+        public void MoveUnit(Transform target, bool isPlayerOwnedTarget = true)
         {
+
             if (isPlayerOwnedTarget)
             {
                 //if the target is player owned unit will follow and stop just as it collides
                 vDS.SetDestination(target, 1.2f);
+                return;
             }
             this.target = target;
             hasTarget = true;
+            
             //1.2 is the distance needed for the unit to stop just as it collides with the enemy
             vDS.SetDestination(target, 1.2f + range);
         }
@@ -80,6 +92,29 @@ namespace NR.RTS.Units.Player
         {
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);
             Destroy(gameObject);
+        }
+
+        private void Attack()
+        {
+            if (target == null)
+            {
+                hasTarget = false;
+                vDS.RemoveDestination();
+                return;
+            }
+            float distance = Vector2.Distance(target.position, transform.position);
+            Enemy.EnemyUnit eu = target.GetComponent<Enemy.EnemyUnit>();
+            float temp = Combat.Attack(currentAttackCooldown, distance, range, eu, meleeAttack, meleeArmorPiercing, attackCooldown, shootingSpeed);
+            if (temp >= 0)
+            {
+                currentAttackCooldown = temp;
+            }
+            else if (temp == -2)
+            {
+                hasTarget = false;
+                vDS.RemoveDestination();
+                return;
+            }
         }
     }
 }

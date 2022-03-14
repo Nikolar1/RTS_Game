@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NR.RTS.Units.Player;
+using UnityEngine.EventSystems;
 
 namespace NR.RTS.InputManager {
     public class InputHandler : MonoBehaviour
@@ -34,12 +35,12 @@ namespace NR.RTS.InputManager {
             }
         }
 
-        private RaycastHit2D checkForHit()
+        public RaycastHit2D CheckForHit()
         {
             mousePosition = Input.mousePosition;
             //Get input position
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            return Physics2D.Raycast(worldPoint, Vector2.zero, 100, interactableLayer);
+            return Physics2D.Raycast(worldPoint, Vector2.zero, 100);
         }
 
         public void HandleUnitMovment()
@@ -47,8 +48,13 @@ namespace NR.RTS.InputManager {
 
             if (Input.GetMouseButtonDown(0))
             {
+                //Check if the pointer is over the UI 
+                if (EventSystem.current.IsPointerOverGameObject())
+                {
+                    return;
+                }
                 //Check if something was hit
-                RaycastHit2D hit = checkForHit();
+                RaycastHit2D hit = CheckForHit();
                 if (hit.collider != null)
                 {
                     if (addedUnit(hit.transform, Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
@@ -94,26 +100,33 @@ namespace NR.RTS.InputManager {
             if (Input.GetMouseButtonDown(1) && HaveSelectedUnits())
             {
                 //Check if something was hit
-                RaycastHit2D hit = checkForHit();
+                RaycastHit2D hit = CheckForHit();
+               
                 if (hit.collider != null)
                 {
                     LayerMask layerHit = hit.transform.gameObject.layer;
 
                     switch (layerHit.value)
                     {
-                        case 8: //Player unit
+                        case 8: //Player object
+
                             foreach (Transform unit in selectedUnits)
                             {
-                                PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
-                                pU.MoveUnit(hit.transform, true);
-                            }
-                            break;
-                        case 9: //Enemy unit
-                            foreach (Transform unit in selectedUnits)
-                            {
+                                Debug.Log("Caooo");
                                 PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
                                 pU.MoveUnit(hit.transform);
                             }
+                            break;
+                        case 9: //Enemy object
+                            foreach (Transform unit in selectedUnits)
+                            {
+
+                                PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+                                pU.MoveUnit(hit.transform, false);
+                            }
+                            break;
+                        case 10:
+                            
                             break;
                         default:
                             foreach(Transform unit in selectedUnits)
@@ -133,6 +146,10 @@ namespace NR.RTS.InputManager {
                         pU.MoveUnit(Camera.main.ScreenToWorldPoint(Input.mousePosition));
                     }
                 }
+            }
+            else if (Input.GetMouseButtonDown(1) && HaveSelectedBuilding())
+            {
+                selectedBuilding.gameObject.GetComponent<Interactable.IBuilding>().SetRallyPoint();
             }
         }
 
@@ -168,6 +185,15 @@ namespace NR.RTS.InputManager {
         private bool HaveSelectedUnits()
         {
             if (selectedUnits.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool HaveSelectedBuilding()
+        {
+            if (selectedBuilding != null)
             {
                 return true;
             }

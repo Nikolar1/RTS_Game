@@ -60,6 +60,39 @@ namespace NR.RTS.Units {
             return unit;
         }
 
+        public string GetUnitType(Unit unit)
+        {
+            if (unit.type == archer.type)
+            {
+                return "Archers";
+            }
+            else if (unit.type == arqubasier.type)
+            {
+                return "Arqubasiers";
+            }
+            else if (unit.type == horseman.type)
+            {
+                return "Horsemen";
+            }
+            else if (unit.type == slinger.type)
+            {
+                return "Slingers";
+            }
+            else if (unit.type == spearman.type)
+            {
+                return "Spearmen";
+            }
+            else if (unit.type == swordsman.type)
+            {
+                return "Swordsmen";
+            }
+            else if (unit.type == worker.type)
+            {
+                return "Workers";
+            }
+            return "";
+        }
+
     }
 }
 

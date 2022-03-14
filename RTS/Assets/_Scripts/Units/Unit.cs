@@ -23,6 +23,8 @@ namespace NR.RTS.Units {
         public unitType type;
         public new string name;
         public GameObject unitPrefab;
+        public GameObject icon;
+        public float spawnTime;
 
         [Space(15)]
         [Header("Unit Base Stats")]

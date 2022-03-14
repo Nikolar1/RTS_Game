@@ -26,7 +26,7 @@ namespace NR.RTS.Units
             }
             return false;
         }
-        public static float Attack(float currentAttackCooldown, float distance, float range, Player.PlayerUnit aggroUnit, float meleeAttack, int meleeArmorPiercing, float attackCooldown, float shootingSpeed)
+        public static float Attack(float currentAttackCooldown, float distance, float range, Damageable aggroUnit, float meleeAttack, int meleeArmorPiercing, float attackCooldown, float shootingSpeed)
         {
             if(aggroUnit == null)
             {

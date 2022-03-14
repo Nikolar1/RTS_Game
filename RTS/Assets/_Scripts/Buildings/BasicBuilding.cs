@@ -18,6 +18,7 @@ namespace NR.RTS.Buildings
         public buildingType type;
         public new string name;
         public GameObject buildingPrefab;
+        public GameObject icon;
 
         [Space(15)]
         [Header("Building Base Stats")]

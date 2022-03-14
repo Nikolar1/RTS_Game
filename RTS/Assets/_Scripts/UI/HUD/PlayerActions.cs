@@ -10,11 +10,11 @@ namespace NR.RTS.UI.HUD
         [Space(5)]
         [Header("Units")]
 
-        public Units.Unit[] units = new Units.Unit[0];
+        public List<Units.Unit> units = new List<Units.Unit>();
 
         [Space(5)]
         [Header("Units")]
         [Space(15)]
-        public Buildings.BasicBuilding[] basicBuildings = new Buildings.BasicBuilding[0];
+        public List<Buildings.BasicBuilding> basicBuildings = new List<Buildings.BasicBuilding>();
     }
 }
