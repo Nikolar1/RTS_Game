@@ -60,8 +60,10 @@
     <Compile Include="Assets\_Scripts\UI\HUD\ActionFrame.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerManager.cs" />
     <Compile Include="Assets\_Scripts\UI\HUD\PlayerActions.cs" />
+    <Compile Include="Assets\_Scripts\UI\HUD\Action.cs" />
     <Compile Include="Assets\_Scripts\Units\Player\PlayerUnit.cs" />
     <Compile Include="Assets\_Scripts\Units\Player\PlayerUnitOld.cs" />
+    <Compile Include="Assets\_Scripts\UI\HUD\ActionTimer.cs" />
     <Compile Include="Assets\_Scripts\Units\Enemy\EnemyUnit.cs" />
     <Compile Include="Assets\_Scripts\Units\UnitHandler.cs" />
     <Compile Include="Assets\_Scripts\Units\Combat.cs" />
@@ -74,10 +76,9 @@
     <Compile Include="Assets\_Scripts\Buildings\BasicBuilding.cs" />
     <Compile Include="Assets\_Scripts\InputManager\MultiSelect.cs" />
     <Compile Include="Assets\_Scripts\Interactables\IBuilding.cs" />
-    <Compile Include="Assets\_Scripts\Buildings\BuildingHandler.cs" />
-    <Compile Include="Assets\_Scripts\UI\HUD\Action.cs" />
-    <Compile Include="Assets\_Scripts\UI\HUD\ActionTimer.cs" />
     <Compile Include="Assets\_Scripts\Units\Damageable.cs" />
+    <Compile Include="Assets\_Scripts\Buildings\BuildingHandler.cs" />
+    <Compile Include="Assets\_Scripts\Units\UnitStats.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

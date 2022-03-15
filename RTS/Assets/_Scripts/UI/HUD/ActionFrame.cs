@@ -125,20 +125,9 @@ namespace NR.RTS.UI.HUD
         {
             GameObject spawnedObject = Instantiate(spawnOrder[0].unitPrefab, rallyPoint.transform.parent.position + Vector3.right, Quaternion.identity);
             Units.Player.PlayerUnit pU = spawnedObject.GetComponent<Units.Player.PlayerUnit>();
-            
-            pU.cost = spawnOrder[0].cost;
-            pU.armor = spawnOrder[0].armor;
-            pU.defence = spawnOrder[0].defence;
-            pU.health = spawnOrder[0].health;
-            pU.currentHealth = spawnOrder[0].health;
-            pU.speed = spawnOrder[0].speed;
-            pU.meleeAttack = spawnOrder[0].meleeAttack;
-            pU.meleeArmorPiercing = spawnOrder[0].meleeArmorPiercing;
-            pU.rangedAttack = spawnOrder[0].rangedAttack;
-            pU.rangedArmorPiercing = spawnOrder[0].rangedArmorPiercing;
-            pU.precission = spawnOrder[0].precission;
-            pU.range = spawnOrder[0].range;
-            pU.shootingSpeed = spawnOrder[0].shootingSpeed;
+
+            pU.baseStats = spawnOrder[0].baseStats;
+            pU.currentHealth = spawnOrder[0].baseStats.health;
             pU.attackCooldown = Player.PlayerManager.attackCooldown;
             pU.currentAttackCooldown = Player.PlayerManager.attackCooldown;
             pU.MoveUnit(rallyPoint.transform.position);

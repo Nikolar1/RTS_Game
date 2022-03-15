@@ -46,6 +46,7 @@ namespace NR.RTS.Player
                     {
                         Buildings.Player.PlayerBuilding pB = tf.GetComponent<Buildings.Player.PlayerBuilding>();
                         pB.baseStats = Buildings.BuildingHandler.instance.GetBuilding(typeName);
+                        pB.currentHealth = pB.baseStats.health;
                     }
                     else
                     {
@@ -57,38 +58,16 @@ namespace NR.RTS.Player
                         if (type == playerUnits)
                         {
                             Units.Player.PlayerUnit pU = tf.GetComponent<Units.Player.PlayerUnit>();
-                            pU.cost = baseUnit.cost;
-                            pU.armor = baseUnit.armor;
-                            pU.defence = baseUnit.defence;
-                            pU.health = baseUnit.health;
-                            pU.currentHealth = baseUnit.health;
-                            pU.speed = baseUnit.speed;
-                            pU.meleeAttack = baseUnit.meleeAttack;
-                            pU.meleeArmorPiercing = baseUnit.meleeArmorPiercing;
-                            pU.rangedAttack = baseUnit.rangedAttack;
-                            pU.rangedArmorPiercing = baseUnit.rangedArmorPiercing;
-                            pU.precission = baseUnit.precission;
-                            pU.range = baseUnit.range;
-                            pU.shootingSpeed = baseUnit.shootingSpeed;
+                            pU.baseStats = baseUnit.baseStats;
+                            pU.currentHealth = baseUnit.baseStats.health;
                             pU.attackCooldown = attackCooldown;
                             pU.currentAttackCooldown = attackCooldown;
                         }
                         else if (type == enemyUnits)
                         {
                             Units.Enemy.EnemyUnit eU = tf.GetComponent<Units.Enemy.EnemyUnit>();
-                            eU.cost = baseUnit.cost;
-                            eU.armor = baseUnit.armor;
-                            eU.defence = baseUnit.defence;
-                            eU.health = baseUnit.health;
-                            eU.currentHealth = baseUnit.health;
-                            eU.speed = baseUnit.speed;
-                            eU.meleeAttack = baseUnit.meleeAttack;
-                            eU.meleeArmorPiercing = baseUnit.meleeArmorPiercing;
-                            eU.rangedAttack = baseUnit.rangedAttack;
-                            eU.rangedArmorPiercing = baseUnit.rangedArmorPiercing;
-                            eU.precission = baseUnit.precission;
-                            eU.range = baseUnit.range;
-                            eU.shootingSpeed = baseUnit.shootingSpeed;
+                            eU.baseStats = baseUnit.baseStats;
+                            eU.currentHealth = baseUnit.baseStats.health;
                             eU.attackCooldown = attackCooldown;
                             eU.currentAttackCooldown = attackCooldown;
                         }

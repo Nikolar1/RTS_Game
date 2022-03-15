@@ -6,11 +6,13 @@ namespace NR.RTS.Interactable
     {
         public UI.HUD.PlayerActions actions;
         public GameObject rallyPoint = null;
-        
+        public GameObject unitDisplay;
+
 
         public override void OnInteractEnter()
         {
             rallyPoint.SetActive(true);
+            unitDisplay.SetActive(true);
             UI.HUD.ActionFrame.instance.SetActionButtons(actions, rallyPoint);
             base.OnInteractEnter();
         }
@@ -19,6 +21,7 @@ namespace NR.RTS.Interactable
         {
             UI.HUD.ActionFrame.instance.ClearActions();
             rallyPoint.SetActive(false);
+            unitDisplay.SetActive(false);
             base.OnInteractExit();
         }
 

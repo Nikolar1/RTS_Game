@@ -9,18 +9,7 @@ namespace NR.RTS.Units.Player
     [RequireComponent(typeof(VectorDestinationSetter))]
     public class PlayerUnit : MonoBehaviour, Damageable
     {
-        public int cost;
-        public int armor;
-        public int defence;
-        public float health;
-        public float speed;
-        public float meleeAttack;
-        public int meleeArmorPiercing;
-        public float rangedAttack;
-        public int rangedArmorPiercing;
-        public int precission;
-        public float range;
-        public float shootingSpeed;
+        public UnitStats.Base baseStats;
         public float attackCooldown;
         public float currentAttackCooldown;
 
@@ -53,7 +42,7 @@ namespace NR.RTS.Units.Player
 
         private void LateUpdate()
         {
-            if (Combat.HandleHealth(healthBarAmount, currentHealth, health))
+            if (Combat.HandleHealth(healthBarAmount, currentHealth, baseStats.health))
             {
                 Die();
             }
@@ -78,12 +67,12 @@ namespace NR.RTS.Units.Player
             hasTarget = true;
             
             //1.2 is the distance needed for the unit to stop just as it collides with the enemy
-            vDS.SetDestination(target, 1.2f + range);
+            vDS.SetDestination(target, 1.2f + baseStats.range);
         }
 
         public void TakeDamage(float damage, int armorPiercing)
         {
-            currentHealth = Combat.TakeDamage(damage, armorPiercing, armor, defence, currentHealth);
+            currentHealth = Combat.TakeDamage(damage, armorPiercing, baseStats.armor, baseStats.defence, currentHealth);
         }
 
 
@@ -104,7 +93,7 @@ namespace NR.RTS.Units.Player
             }
             float distance = Vector2.Distance(target.position, transform.position);
             Enemy.EnemyUnit eu = target.GetComponent<Enemy.EnemyUnit>();
-            float temp = Combat.Attack(currentAttackCooldown, distance, range, eu, meleeAttack, meleeArmorPiercing, attackCooldown, shootingSpeed);
+            float temp = Combat.Attack(currentAttackCooldown, distance, attackCooldown, eu, baseStats);
             if (temp >= 0)
             {
                 currentAttackCooldown = temp;

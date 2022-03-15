@@ -17,15 +17,16 @@ MonoBehaviour:
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
   icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
   spawnTime: 5
-  cost: 200
-  armor: 7
-  defence: 50
-  health: 50
-  speed: 0.3
-  range: 0
-  meleeAttack: 20
-  meleeArmorPiercing: 50
-  rangedAttack: 0
-  rangedArmorPiercing: 0
-  precission: 0
-  shootingSpeed: 0
+  baseStats:
+    cost: 200
+    armor: 7
+    defence: 50
+    health: 50
+    speed: 0.3
+    range: 0
+    meleeAttack: 20
+    meleeArmorPiercing: 50
+    rangedAttack: 0
+    rangedArmorPiercing: 0
+    precission: 0
+    shootingSpeed: 0

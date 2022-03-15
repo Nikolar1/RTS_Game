@@ -12,23 +12,12 @@ namespace NR.RTS.Units.Enemy
         //Distance at which the enemy will start attacking
         private const float aggroDistance = 11;
 
-        public int cost;
-        public int armor;
-        public int defence;
-        public float health;
-        public float speed;
-        public float meleeAttack;
-        public int meleeArmorPiercing;
-        public float rangedAttack;
-        public int rangedArmorPiercing;
-        public int precission;
-        public float range;
-        public float shootingSpeed;
+        public UnitStats.Base baseStats;
 
         private Collider2D[] rangeColliders;
 
         private Transform aggroTarget;
-        private Player.PlayerUnit aggroUnit;
+        private Damageable aggroUnit;
         private bool hasAggro = false;
 
         private float distance;
@@ -64,7 +53,7 @@ namespace NR.RTS.Units.Enemy
 
         private void LateUpdate()
         {
-            if(Combat.HandleHealth(healthBarAmount, currentHealth, health))
+            if(Combat.HandleHealth(healthBarAmount, currentHealth, baseStats.health))
             {
                 Die();
             }
@@ -92,6 +81,10 @@ namespace NR.RTS.Units.Enemy
             {
                 aggroTarget = rangeColliders[clossestCollision].gameObject.transform;
                 aggroUnit = aggroTarget.gameObject.GetComponent<Player.PlayerUnit>();
+                if (aggroUnit == null)
+                {
+                    aggroUnit = aggroTarget.gameObject.GetComponent<Buildings.Player.PlayerBuilding>();
+                }
             }
         }
 
@@ -104,7 +97,7 @@ namespace NR.RTS.Units.Enemy
                 return;
             }
             distance = Vector2.Distance(aggroTarget.position, transform.position);
-            float temp = Combat.Attack(currentAttackCooldown, distance, range, aggroUnit, meleeAttack, meleeArmorPiercing, attackCooldown, shootingSpeed);
+            float temp = Combat.Attack(currentAttackCooldown, distance, attackCooldown, aggroUnit, baseStats);
             if (temp >= 0)
             {
                 currentAttackCooldown = temp;
@@ -118,7 +111,7 @@ namespace NR.RTS.Units.Enemy
 
         public void TakeDamage(float damage, int armorPiercing)
         {
-            currentHealth = Combat.TakeDamage(damage, armorPiercing, armor, defence, currentHealth);
+            currentHealth = Combat.TakeDamage(damage, armorPiercing, baseStats.armor, baseStats.defence, currentHealth);
         }
 
         private void MoveToAggroTarget()
@@ -133,7 +126,7 @@ namespace NR.RTS.Units.Enemy
             if (distance <= aggroDistance + aggroDistance*0.1)
             {
                 //1.2 is the distance needed for the unit to stop just as it collides with the enemy
-                vDS.SetDestination(aggroTarget, 1.2f + range);
+                vDS.SetDestination(aggroTarget, 1.2f + baseStats.range);
 
             }
             else
