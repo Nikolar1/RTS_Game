@@ -43,6 +43,39 @@ namespace NR.RTS.InputManager {
             return Physics2D.Raycast(worldPoint, Vector2.zero, 100);
         }
 
+        public void HandleCameraMovment()
+        {
+            CameraController.instance.Move(HandleCameraPan());
+            float scroll = Input.GetAxis("Mouse ScrollWheel");
+            if (scroll != 0f)
+            {
+                CameraController.instance.Zoom(scroll);
+            }
+        }
+
+        private Vector3 HandleCameraPan()
+        {
+            Vector3 direction = Vector3.zero;
+            //Screen height and width is calculated from the bottom left corner 
+            if (Input.GetKey(KeyCode.UpArrow) || Input.mousePosition.y >= Screen.height - CameraController.instance.panBorderThickness)
+            {
+                direction.y = 1;
+            }
+            if (Input.GetKey(KeyCode.DownArrow) || Input.mousePosition.y <= CameraController.instance.panBorderThickness)
+            {
+                direction.y = -1;
+            }
+            if (Input.GetKey(KeyCode.LeftArrow) || Input.mousePosition.x <= CameraController.instance.panBorderThickness)
+            {
+                direction.x = -1;
+            }
+            if (Input.GetKey(KeyCode.RightArrow) || Input.mousePosition.x >= Screen.width - CameraController.instance.panBorderThickness)
+            {
+                direction.x = 1;
+            }
+            return direction;
+        }
+
         public void HandleUnitMovment()
         {
 

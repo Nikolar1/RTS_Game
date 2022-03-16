@@ -33,6 +33,7 @@ namespace NR.RTS.Player
         void Update()
         {
             InputHandler.instance.HandleUnitMovment();
+            InputHandler.instance.HandleCameraMovment();
         }
 
         public void SetUnitStats(Transform type)
@@ -47,6 +48,8 @@ namespace NR.RTS.Player
                         Buildings.Player.PlayerBuilding pB = tf.GetComponent<Buildings.Player.PlayerBuilding>();
                         pB.baseStats = Buildings.BuildingHandler.instance.GetBuilding(typeName);
                         pB.currentHealth = pB.baseStats.health;
+                        pB.attackCooldown = attackCooldown;
+                        pB.currentAttackCooldown = attackCooldown;
                     }
                     else
                     {
@@ -62,6 +65,7 @@ namespace NR.RTS.Player
                             pU.currentHealth = baseUnit.baseStats.health;
                             pU.attackCooldown = attackCooldown;
                             pU.currentAttackCooldown = attackCooldown;
+                            pU.SetSpeed();
                         }
                         else if (type == enemyUnits)
                         {
@@ -70,6 +74,7 @@ namespace NR.RTS.Player
                             eU.currentHealth = baseUnit.baseStats.health;
                             eU.attackCooldown = attackCooldown;
                             eU.currentAttackCooldown = attackCooldown;
+                            eU.SetSpeed();
                         }
                     }
 

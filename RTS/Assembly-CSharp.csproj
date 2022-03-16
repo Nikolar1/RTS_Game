@@ -69,6 +69,7 @@
     <Compile Include="Assets\_Scripts\Units\Combat.cs" />
     <Compile Include="Assets\_Scripts\Interactables\IUnit.cs" />
     <Compile Include="Assets\_Scripts\InputManager\InputHandler.cs" />
+    <Compile Include="Assets\_Scripts\Units\UnitStats.cs" />
     <Compile Include="Assets\_Scripts\Buildings\BuildingStatTypes.cs" />
     <Compile Include="Assets\_Scripts\Units\Unit.cs" />
     <Compile Include="Assets\_Scripts\Units\VectorDestinationSetter.cs" />
@@ -78,7 +79,8 @@
     <Compile Include="Assets\_Scripts\Interactables\IBuilding.cs" />
     <Compile Include="Assets\_Scripts\Units\Damageable.cs" />
     <Compile Include="Assets\_Scripts\Buildings\BuildingHandler.cs" />
-    <Compile Include="Assets\_Scripts\Units\UnitStats.cs" />
+    <Compile Include="Assets\_Scripts\Units\SharedUnit.cs" />
+    <Compile Include="Assets\_Scripts\InputManager\CameraController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

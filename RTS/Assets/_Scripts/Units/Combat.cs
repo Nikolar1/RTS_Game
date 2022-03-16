@@ -26,7 +26,7 @@ namespace NR.RTS.Units
             }
             return false;
         }
-        public static float Attack(float currentAttackCooldown, float distance, float attackCooldown, Damageable aggroUnit, UnitStats.Base baseStats)
+        public static float Attack(float currentAttackCooldown, float distance, float attackCooldown, Damageable aggroUnit, UnitStats.Base baseStats, bool isBuilding = false)
         {
             if(aggroUnit == null)
             {
@@ -36,7 +36,7 @@ namespace NR.RTS.Units
             if (currentAttackCooldown <= 0 && distance <= 1.4f + baseStats.range)
             {
                 //2 because some melle units have a range of 0.5 
-                if (baseStats.rangedAttack != 0 && distance >= 2f)
+                if ((baseStats.rangedAttack != 0 && distance >= 2f) || isBuilding)
                 {
                     if (WillHit(baseStats.precission))
                     {

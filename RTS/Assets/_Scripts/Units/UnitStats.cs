@@ -2,29 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitStats : ScriptableObject
+namespace NR.RTS.Units
 {
-    [System.Serializable]
-    public class Base
+    public class UnitStats : ScriptableObject
     {
-        public int cost;
-        public int armor;
-        public int defence;
-        public float health;
-        public float speed;
-        public float range;
+        [System.Serializable]
+        public class Base
+        {
+            public int cost;
+            public int armor;
+            public int defence;
+            public float health;
+            public float speed;
+            public float range;
 
-        [Space(15)]
-        [Header("Unit Melee Stats")]
-        public float meleeAttack;
-        public int meleeArmorPiercing;
+            [Space(15)]
+            [Header("Unit Melee Stats")]
+            public float meleeAttack;
+            public int meleeArmorPiercing;
 
-        [Space(15)]
-        [Header("Unit Ranged Stats")]
-        public float rangedAttack;
-        public int rangedArmorPiercing;
-        public int precission;
-        public float shootingSpeed;
+            [Space(15)]
+            [Header("Unit Ranged Stats")]
+            public float rangedAttack;
+            public int rangedArmorPiercing;
+            public int precission;
+            public float shootingSpeed;
+        }
+
     }
-    
 }

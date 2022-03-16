@@ -37,6 +37,11 @@ namespace NR.RTS.Units
             aIDestination.target = null;
             aIPath.destination = transform.position;
         }
+
+        public void SetSpeed(float speedStat)
+        {
+            aIPath.maxSpeed = aIPath.maxSpeed * speedStat;
+        }
     }
 
 }
