@@ -12,22 +12,26 @@ namespace NR.RTS.UI.HUD
         [SerializeField] private Button actionButton = null;
         [SerializeField] private Transform layoutGroup = null;
 
+        [SerializeField] private Button buildQueueButton = null;
+        [SerializeField] private Transform buildQueuelayoutGroup = null;
+        private List<Button> buildQueueButtons = new List<Button>();
         private List<Button> buttons = new List<Button>();
         private PlayerActions actionsList = null;
-
-        public List<float> spawnQueue = new List<float>();
-        public List<Units.Unit> spawnOrder = new List<Units.Unit>();
-
+        public Transform currentSelection;
+        public  Buildings.Player.BuildingBuildQueue buildQueue = null;
         public GameObject rallyPoint = null;
         private void Awake()
         {
             instance = this;
         }
 
-        public void SetActionButtons(PlayerActions actions, GameObject rallyPoint)
+        public void SetActionButtons(PlayerActions actions, GameObject rallyPoint, Transform selectedObject)
         {
             actionsList = actions;
+            currentSelection = selectedObject;
+            buildQueue = currentSelection.GetComponent<Buildings.Player.BuildingBuildQueue> ();
             this.rallyPoint = rallyPoint;
+            buildQueue.PauseTimer();
             if (actions.units.Count>0)
             {
                 foreach (Units.Unit unit in actions.units)
@@ -49,6 +53,23 @@ namespace NR.RTS.UI.HUD
                     buttons.Add(btn);
                 }
             }
+            if (buildQueue.buildQueueIndecies.Count>0)
+            {
+                int i = 0;
+                foreach (int index in buildQueue.buildQueueIndecies)
+                {
+                    if (i == 0)
+                    {
+                        AddButton(buildQueue.spawnOrder[i], buildQueue.buildQueueIndecies[i], currentSelection, buildQueue.actionTimer.elapsedTime);
+                    }
+                    else
+                    {
+                            AddButton(buildQueue.spawnOrder[i], buildQueue.buildQueueIndecies[i], currentSelection);
+                    }
+                    i++;
+                }
+            }
+            buildQueue.ContinueTimer();
         }
 
         public void ClearActions()
@@ -57,37 +78,23 @@ namespace NR.RTS.UI.HUD
             {
                 Destroy(btn.gameObject);
             }
+            foreach (Button btn in buildQueueButtons)
+            {
+                Destroy(btn.gameObject);
+            }
             buttons.Clear();
+            buildQueueButtons.Clear();
+            currentSelection = null;
         }
 
         public void StartSpawnTimer(string objectToSpawn)
         {
-            if (IsUnit(objectToSpawn))
-            {
+            buildQueue.StartSpawnTimer(objectToSpawn);
+        }
 
-                Units.Unit unit = IsUnit(objectToSpawn);
-                spawnQueue.Add(unit.spawnTime);
-                spawnOrder.Add(unit);
-            }
-           /* else if (IsBuilding(objectToSpawn))
-            {
-                Buildings.BasicBuilding building = IsBuilding(objectToSpawn);
-                spawnQueue.Add(0);
-                spawnOrder.Add(building.buildingPrefab);
-            }*/
-            else
-            {
-                Debug.LogError($"{objectToSpawn} is not a spawnable object");
-            }
-
-            if (spawnQueue.Count == 1)
-            {
-                ActionTimer.instance.StartCoroutine(ActionTimer.instance.SpawnQueueTimer());
-            }
-            else if (spawnQueue.Count == 0)
-            {
-                ActionTimer.instance.StopAllCoroutines();
-            }
+        public void RemoveUnitFromBuildQueue(int spawnIndex)
+        {
+            buildQueue.RemoveUnitFromBuildQueue(spawnIndex);
         }
 
         private Units.Unit IsUnit(string name)
@@ -121,28 +128,61 @@ namespace NR.RTS.UI.HUD
             return null;
         }
 
+        public void AddButton(Units.Unit unit, int index, Transform askingObject, float elapsedTime = 0)
+        {
+            if (!askingObject.Equals(currentSelection))
+            {
+                return;
+            }
+            Button btn = Instantiate(buildQueueButton, buildQueuelayoutGroup);
+            btn.name = "" + index;
+            GameObject icon = Instantiate(unit.icon, btn.transform);
+            btn.GetComponent<BuildQueueAction>().spawnTimer = unit.spawnTime;
+            buildQueueButtons.Add(btn);
+            if (buildQueue.spawnOrder.Count == 1)
+            {
+                buildQueueButtons[0].GetComponent<BuildQueueAction>().StartTimer(elapsedTime);
+            }
+        }
+
+        public void RemoveButton(int index, Transform askingObject = null)
+        {
+            if (!askingObject.Equals(currentSelection))
+            {
+                return;
+            }
+            Destroy(buildQueueButtons[index].gameObject);
+            buildQueueButtons.Remove(buildQueueButtons[index]);
+            if (buildQueueButtons.Count>0 && index == 0)
+            {
+                buildQueueButtons[0].GetComponent<BuildQueueAction>().StartTimer();
+            }
+        }
+
         public void SpawnObject()
         {
-            GameObject spawnedObject = Instantiate(spawnOrder[0].unitPrefab, rallyPoint.transform.parent.position + Vector3.right, Quaternion.identity);
+            GameObject spawnedObject = Instantiate(buildQueue.spawnOrder[0].unitPrefab, rallyPoint.transform.parent.position + Vector3.right, Quaternion.identity);
             Units.Player.PlayerUnit pU = spawnedObject.GetComponent<Units.Player.PlayerUnit>();
 
-            pU.baseStats = spawnOrder[0].baseStats;
-            pU.currentHealth = spawnOrder[0].baseStats.health;
+            pU.baseStats = buildQueue.spawnOrder[0].baseStats;
+            pU.currentHealth = buildQueue.spawnOrder[0].baseStats.health;
             pU.attackCooldown = Player.PlayerManager.attackCooldown;
             pU.currentAttackCooldown = Player.PlayerManager.attackCooldown;
+            pU.SetSpeed();
             pU.MoveUnit(rallyPoint.transform.position);
             foreach (Transform type in Player.PlayerManager.instance.playerUnits)
             {
                 string typeName = type.name;
-                Debug.Log(Units.UnitHandler.instance.GetUnitType(spawnOrder[0]));
-                if (typeName == Units.UnitHandler.instance.GetUnitType(spawnOrder[0]))
+                Debug.Log(Units.UnitHandler.instance.GetUnitType(buildQueue.spawnOrder[0]));
+                if (typeName == Units.UnitHandler.instance.GetUnitType(buildQueue.spawnOrder[0]))
                 {
                     pU.transform.SetParent(type.transform);
                     break;
                 }
             }
-            spawnOrder.Remove(spawnOrder[0]);
-            spawnQueue.Remove(spawnQueue[0]);
+            RemoveButton(0);
+            buildQueue.spawnOrder.Remove(buildQueue.spawnOrder[0]);
+            buildQueue.spawnQueue.Remove(buildQueue.spawnQueue[0]);
 
         }
     }

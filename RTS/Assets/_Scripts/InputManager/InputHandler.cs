@@ -145,7 +145,6 @@ namespace NR.RTS.InputManager {
 
                             foreach (Transform unit in selectedUnits)
                             {
-                                Debug.Log("Caooo");
                                 PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
                                 pU.MoveUnit(hit.transform);
                             }

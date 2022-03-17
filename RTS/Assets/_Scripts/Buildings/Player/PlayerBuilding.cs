@@ -19,6 +19,8 @@ namespace NR.RTS.Buildings.Player
         private const float aggroDistance = 5;
         public float attackCooldown;
         public float currentAttackCooldown;
+        
+
 
         private void Update()
         {

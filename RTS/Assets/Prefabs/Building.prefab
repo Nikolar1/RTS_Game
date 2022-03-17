@@ -177,6 +177,8 @@ GameObject:
   - component: {fileID: 7396476715808513659}
   - component: {fileID: 7436942891291477310}
   - component: {fileID: 1568918903877862427}
+  - component: {fileID: 4355499218034471061}
+  - component: {fileID: 2678721454990050884}
   m_Layer: 8
   m_Name: Building
   m_TagString: Untagged
@@ -297,9 +299,11 @@ MonoBehaviour:
     shootingSpeed: 0
     armorPiercing: 0
     precission: 0
-  unitDisplay: {fileID: 2650990902800085571}
   healthBarAmount: {fileID: 752335195567025281}
   currentHealth: 1
+  target: {fileID: 0}
+  attackCooldown: 0
+  currentAttackCooldown: 0
 --- !u!114 &1568918903877862427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +321,41 @@ MonoBehaviour:
   actions: {fileID: 11400000, guid: 7d39db2c40c131d45b777062198e0634, type: 2}
   rallyPoint: {fileID: 556907102602485229}
   unitDisplay: {fileID: 2650990902800085571}
+--- !u!114 &4355499218034471061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396476715808513656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 076d1c8c864194e49ae78304ae453bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buildQueueIndecies: 
+  buildQueueIndex: 0
+  spawnQueue: []
+  spawnOrder: []
+  actionTimer: {fileID: 0}
+  actions: {fileID: 0}
+  rallyPoint: {fileID: 556907102602485229}
+--- !u!114 &2678721454990050884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7396476715808513656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fde9b0b10dc6b8f42be8a47cf0ce9cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnTimer: 0
+  elapsedTime: 0
+  buildQueue: {fileID: 0}
+  timerStarted: 0
 --- !u!1001 &8889525125793049076
 PrefabInstance:
   m_ObjectHideFlags: 0
