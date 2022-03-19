@@ -11,6 +11,7 @@ namespace NR.RTS.Units.Enemy
     {
         //Distance at which the enemy will start attacking
         private float distance;
+        
 
         private void Update()
         {
@@ -23,6 +24,10 @@ namespace NR.RTS.Units.Enemy
             {
                 Attack();
                 MoveToAggroTarget();
+                if (lastCheckedTime + RTS.Player.PlayerManager.instance.timeBetweenTargetChecks <= Time.time)
+                {
+                    CheckForEnemyTargets(false);
+                }
             }
         }
 

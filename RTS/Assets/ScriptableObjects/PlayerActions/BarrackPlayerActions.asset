@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f26cf780d8fa4174daff71304e2ae653, type: 3}
+  m_Name: BarrackPlayerActions
+  m_EditorClassIdentifier: 
+  units:
+  - {fileID: 11400000, guid: 16ad743b416fa8f46b05128704f19652, type: 2}
+  - {fileID: 11400000, guid: 836b061c184374c45816d2554b2b0919, type: 2}
+  - {fileID: 11400000, guid: 4ab394b8e008fc34ba66da71f1b6d8ef, type: 2}
+  basicBuildings: []

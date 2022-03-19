@@ -13,7 +13,7 @@ namespace NR.RTS.UI.HUD
         public List<Units.Unit> units = new List<Units.Unit>();
 
         [Space(5)]
-        [Header("Units")]
+        [Header("Buildings")]
         [Space(15)]
         public List<Buildings.BasicBuilding> basicBuildings = new List<Buildings.BasicBuilding>();
     }

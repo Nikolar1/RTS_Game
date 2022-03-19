@@ -15,6 +15,8 @@ namespace NR.RTS.Units
             public float health;
             public float speed;
             public float range;
+            public bool canRepair;
+            public bool canWork;
 
             [Space(15)]
             [Header("Unit Melee Stats")]

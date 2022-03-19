@@ -19,11 +19,17 @@ namespace NR.RTS.Buildings.Player
         private const float aggroDistance = 5;
         public float attackCooldown;
         public float currentAttackCooldown;
-        
+
+        public bool isBuilt = false;
+
 
 
         private void Update()
         {
+            if (!isBuilt)
+            {
+                return;
+            }
             currentAttackCooldown -= Time.deltaTime;
             if (!hasTarget)
             {
@@ -98,7 +104,7 @@ namespace NR.RTS.Buildings.Player
             baseStats.precission = this.baseStats.precission;
             baseStats.range = this.baseStats.range;
             baseStats.shootingSpeed = this.baseStats.shootingSpeed;
-            float temp = Combat.Attack(currentAttackCooldown, distance, attackCooldown, targetUnit, baseStats);
+            float temp = Combat.Attack(currentAttackCooldown, distance, attackCooldown, targetUnit, baseStats, true);
             if (temp >= 0)
             {
                 currentAttackCooldown = temp;
@@ -109,5 +115,20 @@ namespace NR.RTS.Buildings.Player
                 return;
             }
         }
+
+        public float Repair()
+        {
+            currentHealth = Mathf.Min(baseStats.health, currentHealth + RTS.Player.PlayerManager.instance.buildSpeed);
+            if (currentHealth == baseStats.health)
+            {
+                if (!isBuilt)
+                {
+                    isBuilt = true;
+                }
+                return -1f;
+            }
+            return 0f;
+        }
+
     }
 }

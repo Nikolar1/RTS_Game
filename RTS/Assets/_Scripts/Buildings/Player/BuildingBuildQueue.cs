@@ -18,7 +18,6 @@ namespace NR.RTS.Buildings.Player
         private void Awake()
         {
             actionTimer = GetComponent<UI.HUD.ActionTimer>();
-            actions = GetComponent<Interactable.IBuilding>().actions;
         }
 
         public void StartSpawnTimer(string objectToSpawn)
@@ -50,10 +49,11 @@ namespace NR.RTS.Buildings.Player
 
             pU.baseStats = spawnOrder[0].baseStats;
             pU.currentHealth = spawnOrder[0].baseStats.health;
-            pU.attackCooldown = RTS.Player.PlayerManager.attackCooldown;
-            pU.currentAttackCooldown = RTS.Player.PlayerManager.attackCooldown;
+            pU.attackCooldown = RTS.Player.PlayerManager.instance.attackCooldown;
+            pU.currentAttackCooldown = RTS.Player.PlayerManager.instance.attackCooldown;
             pU.SetSpeed();
             pU.MoveUnit(rallyPoint.transform.position);
+            spawnedObject.transform.GetComponent<Interactable.IUnit>().actions = spawnOrder[0].actions;
             foreach (Transform type in RTS.Player.PlayerManager.instance.playerUnits)
             {
                 string typeName = type.name;

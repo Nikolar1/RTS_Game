@@ -11,12 +11,13 @@ namespace NR.RTS.Units
         public UnitStats.Base baseStats;
         public float attackCooldown;
         public float currentAttackCooldown;
-
+        protected float lastCheckedTime;
         public GameObject unitDisplay;
 
         public Image healthBarAmount;
 
         public float currentHealth = 1;
+        protected bool isRepairing = false;
 
         protected Transform target;
         protected bool hasTarget = false;
@@ -43,6 +44,28 @@ namespace NR.RTS.Units
             Destroy(gameObject);
         }
 
+        protected void Repair()
+        {
+            if (target == null)
+            {
+                isRepairing = false;
+                vDS.RemoveDestination();
+                return;
+            }
+            float distance = Vector2.Distance(target.position, transform.position);
+            if (currentAttackCooldown <= 0 && distance <= 1.4f)
+            {
+                float temp = target.GetComponent<Buildings.Player.PlayerBuilding>().Repair();
+                if (temp == -1)
+                {
+                    target = null;
+                    isRepairing = false;
+                    vDS.RemoveDestination();
+                    return;
+                }
+            }
+        }
+
         protected void Attack()
         {
             if (target == null)
@@ -67,6 +90,7 @@ namespace NR.RTS.Units
 
         protected void CheckForEnemyTargets(bool isPlayerUnit)
         {
+            lastCheckedTime = Time.time;
             rangeColliders = Physics2D.OverlapCircleAll(transform.position, aggroDistance);
             //Distance cant be greater than 10 because thats the radius of the collision checking circle so 50 just to be sure
             float clossestDistance = 50;

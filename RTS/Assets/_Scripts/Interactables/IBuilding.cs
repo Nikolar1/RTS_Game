@@ -10,19 +10,28 @@ namespace NR.RTS.Interactable
         public GameObject unitDisplay;
         public override void OnInteractEnter()
         {
-            rallyPoint.SetActive(true);
             unitDisplay.SetActive(true);
-            UI.HUD.ActionFrame.instance.SetActionButtons(actions, rallyPoint, transform);
+            if (transform.GetComponent<Buildings.Player.PlayerBuilding>().isBuilt)
+            {
+                rallyPoint.SetActive(true);
+                UI.HUD.ActionFrame.instance.SetActionButtons(actions, transform, rallyPoint);
+            }
+            
             base.OnInteractEnter();
         }
 
         public override void OnInteractExit()
         {
-            UI.HUD.ActionFrame.instance.ClearActions();
-            rallyPoint.SetActive(false);
             unitDisplay.SetActive(false);
+            if (transform.GetComponent<Buildings.Player.PlayerBuilding>().isBuilt)
+            {
+                UI.HUD.ActionFrame.instance.ClearActions();
+                rallyPoint.SetActive(false);
+            }
+            
             base.OnInteractExit();
         }
+
 
         public void SetRallyPoint()
         {

@@ -16,6 +16,7 @@ MonoBehaviour:
   name: Camp
   buildingPrefab: {fileID: 7396476715808513656, guid: 643be82f78b172341b74598e3ac0e039, type: 3}
   icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  actions: {fileID: 11400000, guid: 7d39db2c40c131d45b777062198e0634, type: 2}
   baseStats:
     health: 5000
     attack: 8

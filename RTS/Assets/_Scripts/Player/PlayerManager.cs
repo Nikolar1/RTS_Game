@@ -14,7 +14,11 @@ namespace NR.RTS.Player
         public Transform enemyUnits;
         public Transform playerBuildings;
 
-        public const float attackCooldown = 1;
+        private bool isInBuildMode = false;
+
+        public float attackCooldown = 1;
+        public float buildSpeed = 100;
+        public float timeBetweenTargetChecks = 5;
 
         private void Awake()
         {
@@ -32,10 +36,25 @@ namespace NR.RTS.Player
         // Update is called once per frame
         void Update()
         {
-            InputHandler.instance.HandleUnitMovment();
+            if (isInBuildMode)
+            {
+                InputHandler.instance.HandleBuildingPlacement();
+            }
+            else
+            {
+                InputHandler.instance.HandleUnitMovment();
+            }
             InputHandler.instance.HandleCameraMovment();
         }
 
+        public void EnterBuildMode()
+        {
+            isInBuildMode = true;
+        }
+        public void ExitBuildMode()
+        {
+            isInBuildMode = false;
+        }
         public void SetUnitStats(Transform type)
         {
             foreach (Transform child in type)
@@ -45,11 +64,15 @@ namespace NR.RTS.Player
                     string typeName = child.name.ToLower();
                     if (type == playerBuildings)
                     {
+                        Buildings.BasicBuilding basicBuilding = Buildings.BuildingHandler.instance.GetBuilding(typeName);
                         Buildings.Player.PlayerBuilding pB = tf.GetComponent<Buildings.Player.PlayerBuilding>();
-                        pB.baseStats = Buildings.BuildingHandler.instance.GetBuilding(typeName);
+                        pB.baseStats = basicBuilding.baseStats;
                         pB.currentHealth = pB.baseStats.health;
                         pB.attackCooldown = attackCooldown;
                         pB.currentAttackCooldown = attackCooldown;
+                        pB.isBuilt = true;
+                        tf.GetComponent<Interactable.IBuilding>().actions = basicBuilding.actions;
+                        tf.GetComponent<Buildings.Player.BuildingBuildQueue>().actions = basicBuilding.actions;
                     }
                     else
                     {
@@ -66,6 +89,7 @@ namespace NR.RTS.Player
                             pU.attackCooldown = attackCooldown;
                             pU.currentAttackCooldown = attackCooldown;
                             pU.SetSpeed();
+                            tf.GetComponent<Interactable.IUnit>().actions = baseUnit.actions;
                         }
                         else if (type == enemyUnits)
                         {

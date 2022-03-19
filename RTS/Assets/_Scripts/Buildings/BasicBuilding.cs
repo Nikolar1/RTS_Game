@@ -9,7 +9,10 @@ namespace NR.RTS.Buildings
     {
         public enum buildingType
         {
-            Camp
+            Camp,
+            Barracks,
+            Tower,
+            Wall
         }
 
         [Space(15)]
@@ -19,6 +22,7 @@ namespace NR.RTS.Buildings
         public new string name;
         public GameObject buildingPrefab;
         public GameObject icon;
+        public UI.HUD.PlayerActions actions;
 
         [Space(15)]
         [Header("Building Base Stats")]

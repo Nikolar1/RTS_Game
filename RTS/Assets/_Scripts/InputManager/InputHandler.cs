@@ -35,6 +35,7 @@ namespace NR.RTS.InputManager {
             }
         }
 
+
         public RaycastHit2D CheckForHit()
         {
             mousePosition = Input.mousePosition;
@@ -74,6 +75,19 @@ namespace NR.RTS.InputManager {
                 direction.x = 1;
             }
             return direction;
+        }
+
+        public void HandleBuildingPlacement()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Player.PlayerManager.instance.ExitBuildMode();
+                return;
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                Buildings.Player.BuildingBuildManager.instance.SpawnBuilding();
+            }
         }
 
         public void HandleUnitMovment()
@@ -159,6 +173,14 @@ namespace NR.RTS.InputManager {
                             break;
                         case 10:
                             
+                            break;
+                        case 11:
+                            foreach (Transform unit in selectedUnits)
+                            {
+
+                                PlayerUnit pU = unit.gameObject.GetComponent<PlayerUnit>();
+                                pU.MoveUnit(hit.transform, false, true);
+                            }
                             break;
                         default:
                             foreach(Transform unit in selectedUnits)
