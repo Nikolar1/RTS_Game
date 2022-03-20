@@ -48,7 +48,12 @@ namespace NR.RTS.Buildings.Player
             {
                 return false;
             }
-            return true;
+            if (selectedBuilding.TakeResources())
+            {
+                return true;
+            }
+            return false;
         }
+
     }
 }

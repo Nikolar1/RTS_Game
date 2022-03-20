@@ -10,7 +10,7 @@ namespace NR.RTS.Buildings
         [System.Serializable]
         public class Base
         {
-            public float health, attack,  range,  shootingSpeed;
+            public float health, attack,  range,  shootingSpeed, cost;
             public int armorPiercing, precission;
         }
     }

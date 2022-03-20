@@ -22,5 +22,6 @@ MonoBehaviour:
     attack: 8
     range: 8
     shootingSpeed: 0.25
+    cost: 400
     armorPiercing: 70
     precission: 90

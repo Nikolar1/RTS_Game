@@ -22,5 +22,6 @@ MonoBehaviour:
     attack: 0
     range: 0
     shootingSpeed: 0
+    cost: 25
     armorPiercing: 0
     precission: 0

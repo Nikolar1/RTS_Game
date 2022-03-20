@@ -78,8 +78,12 @@ namespace NR.RTS.UI.HUD
             
         }
 
-        public void ClearActions()
+        public void ClearActions(Transform askingObject)
         {
+            if (!askingObject.Equals(currentSelection))
+            {
+                return;
+            }
             foreach (Button btn in buttons)
             {
                 Destroy(btn.gameObject);

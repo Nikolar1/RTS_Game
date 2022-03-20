@@ -8,9 +8,18 @@ namespace NR.RTS.Resources
 {
     public class Resource : MonoBehaviour
     {
+        public BasicResource.resourceType type;
         public float ammount;
         public float currentAmmount = 1;
         public Image healthBarAmount;
+
+        private void Update()
+        {
+            if(Units.Combat.HandleHealth(healthBarAmount, currentAmmount, ammount))
+            {
+                Depleate();
+            }
+        }
 
         private void LateUpdate()
         {
@@ -18,6 +27,12 @@ namespace NR.RTS.Resources
             {
                 Depleate();
             }
+        }
+
+        public void SetAmmount(float baseAmmount)
+        {
+            ammount = Mathf.Round(Random.Range(baseAmmount * 0.9f, baseAmmount * 1.1f));
+            currentAmmount = ammount;
         }
 
         public float Mine()
@@ -39,6 +54,8 @@ namespace NR.RTS.Resources
         {
             Destroy(gameObject);
         }
+
+
 
     }
 }

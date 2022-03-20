@@ -64,7 +64,7 @@ namespace NR.RTS.Units.Player
             {
                 isMining = true;
                 this.target = target;
-                vDS.SetDestination(target, 1.2f);
+                vDS.SetDestination(target);
                 return;
             }
             this.target = target;
@@ -83,10 +83,18 @@ namespace NR.RTS.Units.Player
                 vDS.RemoveDestination();
                 return;
             }
-            float distance = Vector2.Distance(target.position, transform.position);
-            if (currentAttackCooldown <= 0 && distance <= 1.4f)
+            bool aceptableDistance = false;
+            foreach (Collider2D collider in Physics2D.OverlapCircleAll(transform.position, 1.2f))
+            {
+                if (collider.gameObject.transform == target)
+                {
+                    aceptableDistance = true;
+                }
+            }
+            if (currentAttackCooldown <= 0 && aceptableDistance)
             {
                 float temp = target.GetComponent<Resources.Resource>().Mine();
+                currentAttackCooldown = attackCooldown;
                 RTS.Player.PlayerResourceManager.instance.gold += temp;
                 if (temp < 25)
                 {
@@ -101,7 +109,10 @@ namespace NR.RTS.Units.Player
         new private void Die()
         {
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);
+            transform.GetComponent<Interactable.IUnit>().OnInteractExit();
             base.Die();
         }
+
+        
     }
 }

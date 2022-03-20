@@ -25,7 +25,7 @@ namespace NR.RTS.Interactable
             unitDisplay.SetActive(false);
             if (transform.GetComponent<Buildings.Player.PlayerBuilding>().isBuilt)
             {
-                UI.HUD.ActionFrame.instance.ClearActions();
+                UI.HUD.ActionFrame.instance.ClearActions(transform);
                 rallyPoint.SetActive(false);
             }
             

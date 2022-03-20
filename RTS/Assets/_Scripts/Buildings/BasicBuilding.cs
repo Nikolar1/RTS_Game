@@ -29,6 +29,21 @@ namespace NR.RTS.Buildings
         [Space(40)]
 
         public BuildingStatTypes.Base baseStats;
+
+        public bool TakeResources()
+        {
+            if (RTS.Player.PlayerResourceManager.instance.gold > baseStats.cost)
+            {
+                RTS.Player.PlayerResourceManager.instance.gold -= baseStats.cost;
+                return true;
+            }
+            return false;
+        }
+
+        public void ReturnResources()
+        {
+            RTS.Player.PlayerResourceManager.instance.gold += baseStats.cost;
+        }
     }
 }
 

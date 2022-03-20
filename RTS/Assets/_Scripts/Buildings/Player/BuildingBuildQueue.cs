@@ -26,11 +26,15 @@ namespace NR.RTS.Buildings.Player
             {
 
                 Units.Unit unit = IsUnit(objectToSpawn);
-                spawnQueue.Add(unit.spawnTime);
-                spawnOrder.Add(unit);
-                buildQueueIndecies.Add(buildQueueIndex);
-                UI.HUD.ActionFrame.instance.AddButton(unit, buildQueueIndex, transform);
-                buildQueueIndex++;
+                if (unit.TakeResources())
+                {
+                    spawnQueue.Add(unit.spawnTime);
+                    spawnOrder.Add(unit);
+                    buildQueueIndecies.Add(buildQueueIndex);
+                    UI.HUD.ActionFrame.instance.AddButton(unit, buildQueueIndex, transform);
+                    buildQueueIndex++;
+                    RTS.Player.PlayerResourceManager.instance.gold -= unit.baseStats.cost;
+                }
             }
             else
             {
@@ -97,10 +101,10 @@ namespace NR.RTS.Buildings.Player
         public void RemoveUnitFromBuildQueue(int spawnIndex)
         {
             int index = buildQueueIndecies.IndexOf(spawnIndex);
-            Debug.Log(index);
             UI.HUD.ActionFrame.instance.RemoveButton(index, transform);
             if (index != 0)
             {
+                spawnOrder[index].ReturnResources();
                 spawnOrder.Remove(spawnOrder[index]);
                 spawnQueue.Remove(spawnQueue[index]);
                 buildQueueIndecies.Remove(buildQueueIndecies[index]);
@@ -108,6 +112,7 @@ namespace NR.RTS.Buildings.Player
             else
             {
                 actionTimer.StopTimer();
+                spawnOrder[0].ReturnResources();
                 spawnOrder.Remove(spawnOrder[0]);
                 spawnQueue.Remove(spawnQueue[0]);
                 buildQueueIndecies.Remove(buildQueueIndecies[0]);

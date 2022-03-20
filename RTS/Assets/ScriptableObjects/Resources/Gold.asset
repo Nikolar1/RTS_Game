@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   name: Gold
-  ResourcePrefab: {fileID: 0}
+  ResourcePrefab: {fileID: 436364978749015894, guid: 72420e982ffd4e048a1f14d480f39eb3, type: 3}
   amount: 5000

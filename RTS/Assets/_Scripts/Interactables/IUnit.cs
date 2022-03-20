@@ -20,7 +20,7 @@ namespace NR.RTS.Interactable
                 {
                     if (!unitType.Equals(Units.UnitHandler.instance.GetUnit(transform.parent.name.ToLower()).type))
                     {
-                        UI.HUD.ActionFrame.instance.ClearActions();
+                        UI.HUD.ActionFrame.instance.ClearActions(transform);
                     }
                 }
             }
@@ -30,7 +30,7 @@ namespace NR.RTS.Interactable
 
         public override void OnInteractExit()
         {
-            UI.HUD.ActionFrame.instance.ClearActions();
+            UI.HUD.ActionFrame.instance.ClearActions(transform);
             base.OnInteractExit();
         }
     }

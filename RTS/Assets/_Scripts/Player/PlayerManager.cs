@@ -13,6 +13,7 @@ namespace NR.RTS.Player
         public Transform playerUnits;
         public Transform enemyUnits;
         public Transform playerBuildings;
+        public Transform resources;
 
         private bool isInBuildMode = false;
 
@@ -31,6 +32,7 @@ namespace NR.RTS.Player
             SetUnitStats(playerUnits);
             SetUnitStats(enemyUnits);
             SetUnitStats(playerBuildings);
+            SetUnitStats(resources);
         }
 
         // Update is called once per frame
@@ -62,6 +64,7 @@ namespace NR.RTS.Player
                 foreach (Transform tf in child)
                 {
                     string typeName = child.name.ToLower();
+
                     if (type == playerBuildings)
                     {
                         Buildings.BasicBuilding basicBuilding = Buildings.BuildingHandler.instance.GetBuilding(typeName);
@@ -73,6 +76,13 @@ namespace NR.RTS.Player
                         pB.isBuilt = true;
                         tf.GetComponent<Interactable.IBuilding>().actions = basicBuilding.actions;
                         tf.GetComponent<Buildings.Player.BuildingBuildQueue>().actions = basicBuilding.actions;
+                    }
+                    else if (type == resources)
+                    {
+                        Resources.BasicResource basicResource = Resources.ResourceHandler.instance.GetResource(typeName);
+                        Resources.Resource rs = tf.GetComponent<Resources.Resource>();
+                        rs.type = basicResource.type;
+                        rs.SetAmmount(basicResource.amount);
                     }
                     else
                     {

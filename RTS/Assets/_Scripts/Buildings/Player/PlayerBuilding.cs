@@ -52,6 +52,7 @@ namespace NR.RTS.Buildings.Player
         private void Die()
         {
             InputManager.InputHandler.instance.selectedBuilding = null;
+            transform.GetComponent<Interactable.IBuilding>().OnInteractExit();
             Destroy(gameObject);
         }
 
