@@ -95,7 +95,7 @@ namespace NR.RTS.Units.Player
             {
                 float temp = target.GetComponent<Resources.Resource>().Mine();
                 currentAttackCooldown = attackCooldown;
-                RTS.Player.PlayerResourceManager.instance.gold += temp;
+                RTS.Player.PlayerResourceManager.instance.AddGold(temp);
                 if (temp < 25)
                 {
                     target = null;

@@ -33,7 +33,7 @@ namespace NR.RTS.Buildings.Player
                     buildQueueIndecies.Add(buildQueueIndex);
                     UI.HUD.ActionFrame.instance.AddButton(unit, buildQueueIndex, transform);
                     buildQueueIndex++;
-                    RTS.Player.PlayerResourceManager.instance.gold -= unit.baseStats.cost;
+                    RTS.Player.PlayerResourceManager.instance.RemoveGold(unit.baseStats.cost);
                 }
             }
             else

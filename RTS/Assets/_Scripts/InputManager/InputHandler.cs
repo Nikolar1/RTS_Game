@@ -104,11 +104,11 @@ namespace NR.RTS.InputManager {
                 RaycastHit2D hit = CheckForHit();
                 if (hit.collider != null)
                 {
-                    if (addedUnit(hit.transform, Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
+                    if (AddedUnit(hit.transform, Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
                     {
 
                     }
-                    else if (addedBuilding(hit.transform))
+                    else if (AddedBuilding(hit.transform))
                     {
 
                     }
@@ -132,10 +132,10 @@ namespace NR.RTS.InputManager {
                 {
                     foreach(Transform unit in child)
                     {
-                        if (isWithinSelectionBounds(unit))
+                        if (IsWithinSelectionBounds(unit))
                         {
                             
-                            addedUnit(unit, true);
+                            AddedUnit(unit, true);
                         }
                     }
                 }
@@ -223,7 +223,7 @@ namespace NR.RTS.InputManager {
             selectedUnits.Clear();
         }
 
-        private bool isWithinSelectionBounds(Transform tf)
+        private bool IsWithinSelectionBounds(Transform tf)
         {
             if (!isDragging)
             {
@@ -254,7 +254,7 @@ namespace NR.RTS.InputManager {
             return false;
         }
 
-        private Interactable.IUnit addedUnit(Transform tf, bool canMultiselect = false)
+        private Interactable.IUnit AddedUnit(Transform tf, bool canMultiselect = false)
         {
             Interactable.IUnit iUnit = tf.GetComponent<Interactable.IUnit>();
             if (iUnit)
@@ -273,7 +273,7 @@ namespace NR.RTS.InputManager {
             }
         }
 
-        private Interactable.IBuilding addedBuilding(Transform tf)
+        private Interactable.IBuilding AddedBuilding(Transform tf)
         {
             Interactable.IBuilding iBuilding = tf.GetComponent<Interactable.IBuilding>();
             if (iBuilding)

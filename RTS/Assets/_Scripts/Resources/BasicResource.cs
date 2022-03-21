@@ -7,7 +7,7 @@ namespace NR.RTS.Resources
     [CreateAssetMenu(fileName = "Resource", menuName = "New Resource")]
     public class BasicResource : ScriptableObject
     {
-        public enum resourceType
+        public enum ResourceType
         {
             Gold
         }
@@ -15,7 +15,7 @@ namespace NR.RTS.Resources
         [Space(15)]
         [Header("Resource Settings")]
 
-        public resourceType type;
+        public ResourceType type;
         public new string name;
         public GameObject ResourcePrefab;
         public float amount;

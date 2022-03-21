@@ -34,7 +34,7 @@ namespace NR.RTS.Buildings
         {
             if (RTS.Player.PlayerResourceManager.instance.gold > baseStats.cost)
             {
-                RTS.Player.PlayerResourceManager.instance.gold -= baseStats.cost;
+                RTS.Player.PlayerResourceManager.instance.RemoveGold( baseStats.cost);
                 return true;
             }
             return false;
@@ -42,7 +42,7 @@ namespace NR.RTS.Buildings
 
         public void ReturnResources()
         {
-            RTS.Player.PlayerResourceManager.instance.gold += baseStats.cost;
+            RTS.Player.PlayerResourceManager.instance.AddGold(baseStats.cost);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace NR.RTS.Resources
 {
     public class Resource : MonoBehaviour
     {
-        public BasicResource.resourceType type;
+        public BasicResource.ResourceType type;
         public float ammount;
         public float currentAmmount = 1;
         public Image healthBarAmount;
@@ -46,7 +46,7 @@ namespace NR.RTS.Resources
             {
                 float rez = currentAmmount;
                 currentAmmount = 0;
-                return currentAmmount;
+                return rez;
             }
         }
 
