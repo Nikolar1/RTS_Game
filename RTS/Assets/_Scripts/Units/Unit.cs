@@ -8,7 +8,7 @@ namespace NR.RTS.Units {
     public class Unit : ScriptableObject
     {
 
-        public enum unitType { 
+        public enum UnitType { 
             Worker,
             Spearmen,
             Swordsman,
@@ -20,7 +20,7 @@ namespace NR.RTS.Units {
 
         [Space(15)]
         [Header("Unit Settings")]
-        public unitType type;
+        public UnitType type;
         public new string name;
         public GameObject unitPrefab;
         public GameObject icon;
@@ -35,9 +35,11 @@ namespace NR.RTS.Units {
 
         public bool TakeResources()
         {
-            if (RTS.Player.PlayerResourceManager.instance.gold > baseStats.cost)
+
+            if (RTS.Player.PlayerResourceManager.instance.GetGoldAmmount() > baseStats.cost && RTS.Player.PlayerResourceManager.instance.CheckPopulation(baseStats.populationType))
             {
                 RTS.Player.PlayerResourceManager.instance.RemoveGold( baseStats.cost);
+                RTS.Player.PlayerResourceManager.instance.RemovePopulation(baseStats.populationType);
                 return true;
             }
             return false;
@@ -46,6 +48,7 @@ namespace NR.RTS.Units {
         public void ReturnResources()
         {
             RTS.Player.PlayerResourceManager.instance.AddGold(baseStats.cost);
+            RTS.Player.PlayerResourceManager.instance.AddPopulation(baseStats.populationType);
         }
     }
 }

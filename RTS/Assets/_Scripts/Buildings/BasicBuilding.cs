@@ -7,7 +7,7 @@ namespace NR.RTS.Buildings
     [CreateAssetMenu(fileName = "Building", menuName = "New Building/Basic")]
     public class BasicBuilding : ScriptableObject
     {
-        public enum buildingType
+        public enum BuildingType
         {
             Camp,
             Barracks,
@@ -18,7 +18,7 @@ namespace NR.RTS.Buildings
         [Space(15)]
         [Header("Building Settings")]
 
-        public buildingType type;
+        public BuildingType type;
         public new string name;
         public GameObject buildingPrefab;
         public GameObject icon;
@@ -32,9 +32,9 @@ namespace NR.RTS.Buildings
 
         public bool TakeResources()
         {
-            if (RTS.Player.PlayerResourceManager.instance.gold > baseStats.cost)
+            if (RTS.Player.PlayerResourceManager.instance.GetGoldAmmount() > baseStats.cost)
             {
-                RTS.Player.PlayerResourceManager.instance.RemoveGold( baseStats.cost);
+                RTS.Player.PlayerResourceManager.instance.RemoveGold(baseStats.cost);
                 return true;
             }
             return false;

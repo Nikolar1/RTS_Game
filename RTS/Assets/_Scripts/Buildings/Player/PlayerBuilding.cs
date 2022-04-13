@@ -125,6 +125,7 @@ namespace NR.RTS.Buildings.Player
                 if (!isBuilt)
                 {
                     isBuilt = true;
+                    RTS.Player.VoiceAssistant.instance.PlayConstructionComplete();
                 }
                 return -1f;
             }

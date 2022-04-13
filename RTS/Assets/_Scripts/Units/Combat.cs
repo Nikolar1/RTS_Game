@@ -14,6 +14,7 @@ namespace NR.RTS.Units
             {
                 totalDamage = 0;
             }
+            MissionMusicMixer.instance.SetPeacefull(false);
             return currentHealth - totalDamage;
         }
 

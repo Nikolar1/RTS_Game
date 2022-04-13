@@ -18,6 +18,7 @@ namespace NR.RTS.Buildings.Player
             Vector2 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (!CanSpawnBuilding(worldPoint))
             {
+                RTS.Player.VoiceAssistant.instance.PlayConstructionInterupted();
                 return false;
             }
             GameObject spawnedObject = Instantiate(selectedBuilding.buildingPrefab, worldPoint, Quaternion.identity);

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319e00a8fb697134dbe4bcad0ff4389e, type: 3}
+  m_Name: FieldsOfWheat
+  m_EditorClassIdentifier: 
+  missionBackground: {fileID: 21300000, guid: d379fc40750b66f4989aa1be8b88091e, type: 3}
+  header: Fields of wheat
+  eventExplanation: While marching the army arives before a vast valley covered in
+    fields of wheat. What should we do?
+  optionOne: Quickly set the fields ablaze and continue marching.
+  optionTwo: Stay for a while, and gather the wheat.
+  optionThree: Ignore the wheat, we must move on.
+  sharedText: 'The sight of an endless sea of ripe wheat is truly beutiful. '
+  optionOneConsequence: But we cant allow it to fall to enemy hands. The inferno
+    that ensued spread much more quickly than we expected and three of our workers
+    were unable to escape.
+  optionTwoConsequence: It took some time to gather the wheat but the harvest was
+    plentyfull.
+  optionThreeConsequence: But we had to keep going lest our enemy catches up to us.
+  optionOneGold: 0
+  optionOneTierOnePopulation: 0
+  optionOneTierTwoPopulation: -3
+  optionOneTimeElapsed: -120
+  optionTwoGold: 500
+  optionTwoTierOnePopulation: 0
+  optionTwoTierTwoPopulation: 0
+  optionTwoTimeElapsed: 120
+  optionThreeGold: 0
+  optionThreeTierOnePopulation: 0
+  optionThreeTierTwoPopulation: 0
+  optionThreeTimeElapsed: 30

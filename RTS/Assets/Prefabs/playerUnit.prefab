@@ -331,18 +331,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fffb652e3277d0d41a430453e8acdcfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 0
-  armor: 0
-  defence: 0
-  health: 0
-  speed: 0
-  meleeAttack: 0
-  meleeArmorPiercing: 0
-  rangedAttack: 0
-  rangedArmorPiercing: 0
-  precission: 0
-  range: 0
-  shootingSpeed: 0
+  baseStats:
+    cost: 0
+    armor: 0
+    defence: 0
+    health: 0
+    speed: 0
+    range: 0
+    canRepair: 0
+    canWork: 0
+    meleeAttack: 0
+    meleeArmorPiercing: 0
+    rangedAttack: 0
+    rangedArmorPiercing: 0
+    precission: 0
+    shootingSpeed: 0
   attackCooldown: 0
   currentAttackCooldown: 0
   unitDisplay: {fileID: 3646947717195092947}
@@ -376,6 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isInteracting: 0
   highlight: {fileID: 3046109689263000605}
+  actions: {fileID: 0}
 --- !u!1001 &7857454852151494756
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -466,6 +470,10 @@ PrefabInstance:
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443173383051838271, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1097603413
       objectReference: {fileID: 0}
     - target: {fileID: 6210782747013338377, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_PresetInfoIsWorld

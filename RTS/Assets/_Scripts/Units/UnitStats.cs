@@ -9,7 +9,14 @@ namespace NR.RTS.Units
         [System.Serializable]
         public class Base
         {
+            public enum UnitPopulationType
+            {
+                TierOne,
+                TierTwo
+            }
+
             public int cost;
+            public UnitPopulationType populationType;
             public int armor;
             public int defence;
             public float health;

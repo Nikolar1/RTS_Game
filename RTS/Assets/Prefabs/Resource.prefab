@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 926d49dcbb916e2488812b88fed1d89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
   ammount: 0
   currentAmmount: 1
   healthBarAmount: {fileID: 7908506784098118382}
@@ -220,6 +221,10 @@ PrefabInstance:
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443173383051838271, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1097603413
       objectReference: {fileID: 0}
     - target: {fileID: 5460488306341887737, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_AnchoredPosition.y

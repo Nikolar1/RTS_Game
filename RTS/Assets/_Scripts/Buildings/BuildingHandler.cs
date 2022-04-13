@@ -35,7 +35,6 @@ namespace NR.RTS.Buildings
                 default:
                     Debug.LogError($"Unit type {type} not found");
                     return null;
-                    break;
             }
             return building;
         }

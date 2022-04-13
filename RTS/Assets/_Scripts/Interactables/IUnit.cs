@@ -5,7 +5,7 @@ namespace NR.RTS.Interactable
     public class IUnit : Interactable
     {
         public UI.HUD.PlayerActions actions;
-        private Units.Unit.unitType unitType;
+        private Units.Unit.UnitType unitType;
         public override void OnInteractEnter()
         {
             

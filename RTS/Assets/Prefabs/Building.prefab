@@ -242,7 +242,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
   m_Color: {r: 0.6037736, g: 0.29161975, b: 0, a: 1}
   m_FlipX: 0
@@ -297,6 +297,7 @@ MonoBehaviour:
     attack: 0
     range: 0
     shootingSpeed: 0
+    cost: 0
     armorPiercing: 0
     precission: 0
   healthBarAmount: {fileID: 752335195567025281}
@@ -304,6 +305,7 @@ MonoBehaviour:
   target: {fileID: 0}
   attackCooldown: 0
   currentAttackCooldown: 0
+  isBuilt: 0
 --- !u!114 &1568918903877862427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +358,7 @@ MonoBehaviour:
   elapsedTime: 0
   buildQueue: {fileID: 0}
   timerStarted: 0
+  timerPaused: 0
 --- !u!1001 &8889525125793049076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -446,6 +449,14 @@ PrefabInstance:
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443173383051838271, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443173383051838271, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1097603413
       objectReference: {fileID: 0}
     - target: {fileID: 6888192059866160055, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_Name
