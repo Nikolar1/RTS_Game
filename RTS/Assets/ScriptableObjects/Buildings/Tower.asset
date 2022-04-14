@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 2
   name: Tower
   buildingPrefab: {fileID: 7396476715808513656, guid: 643be82f78b172341b74598e3ac0e039, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 3763431254233704594, guid: 6bbe7d919fda03b4fb2c28e64ab9c458, type: 3}
   actions: {fileID: 0}
   baseStats:
     health: 1000

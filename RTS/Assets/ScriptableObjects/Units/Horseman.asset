@@ -15,15 +15,19 @@ MonoBehaviour:
   type: 6
   name: Horseman
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 2169865419771157211, guid: 7a6ce47634d9c8f4a8bd831234227345, type: 3}
   spawnTime: 5
+  actions: {fileID: 0}
   baseStats:
     cost: 400
+    populationType: 0
     armor: 7
     defence: 50
     health: 75
     speed: 3
     range: 0
+    canRepair: 0
+    canWork: 0
     meleeAttack: 25
     meleeArmorPiercing: 50
     rangedAttack: 0

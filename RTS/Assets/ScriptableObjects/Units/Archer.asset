@@ -15,15 +15,19 @@ MonoBehaviour:
   type: 3
   name: Archer
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 1811910447412694273, guid: ab5b80252e110df428472b0b6813d861, type: 3}
   spawnTime: 5
+  actions: {fileID: 0}
   baseStats:
     cost: 100
+    populationType: 0
     armor: 0
     defence: 20
     health: 50
     speed: 1
     range: 8
+    canRepair: 0
+    canWork: 0
     meleeAttack: 4
     meleeArmorPiercing: 0
     rangedAttack: 8

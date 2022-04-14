@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using NR.RTS.InputManager;
+using UnityEngine.UI;
 
 namespace NR.RTS.Player
 {
@@ -100,6 +101,7 @@ namespace NR.RTS.Player
                             pU.currentAttackCooldown = attackCooldown;
                             pU.SetSpeed();
                             tf.GetComponent<Interactable.IUnit>().actions = baseUnit.actions;
+                            tf.GetComponent<SpriteRenderer>().sprite = baseUnit.icon.transform.GetChild(0).GetComponent<Image>().sprite;
                         }
                         else if (type == enemyUnits)
                         {
@@ -109,6 +111,7 @@ namespace NR.RTS.Player
                             eU.attackCooldown = attackCooldown;
                             eU.currentAttackCooldown = attackCooldown;
                             eU.SetSpeed();
+                            tf.GetComponent<SpriteRenderer>().sprite = baseUnit.icon.transform.GetChild(0).GetComponent<Image>().sprite;
                         }
                     }
 

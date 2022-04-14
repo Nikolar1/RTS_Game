@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace NR.RTS.Buildings.Player
 {
@@ -56,6 +57,7 @@ namespace NR.RTS.Buildings.Player
             pU.attackCooldown = RTS.Player.PlayerManager.instance.attackCooldown;
             pU.currentAttackCooldown = RTS.Player.PlayerManager.instance.attackCooldown;
             pU.SetSpeed();
+            spawnedObject.GetComponent<SpriteRenderer>().sprite = spawnOrder[0].icon.transform.GetChild(0).GetComponent<Image>().sprite;
             pU.MoveUnit(rallyPoint.transform.position);
             spawnedObject.transform.GetComponent<Interactable.IUnit>().actions = spawnOrder[0].actions;
             foreach (Transform type in RTS.Player.PlayerManager.instance.playerUnits)

@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 1
   name: Barracks
   buildingPrefab: {fileID: 7396476715808513656, guid: 643be82f78b172341b74598e3ac0e039, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 2891991525088818109, guid: 73dfb661c4a168549a0203ea92974c6b, type: 3}
   actions: {fileID: 11400000, guid: 6c6e1895ae873804dbcc3f2f51dfb86a, type: 2}
   baseStats:
     health: 1000

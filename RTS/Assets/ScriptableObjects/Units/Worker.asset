@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 0
   name: Worker
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 4064896784022941348, guid: 8d1789670410cc34dac430481df05b55, type: 3}
   spawnTime: 5
   actions: {fileID: 11400000, guid: 3d89649d944b6a649a4aa6b6741c8a48, type: 2}
   baseStats:

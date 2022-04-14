@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3046109689263000605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.1}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 5629031229250592114}
   m_RootOrder: 0
@@ -117,7 +117,7 @@ Transform:
   m_GameObject: {fileID: 5222890308719365078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.39, y: 0.39, z: 1}
   m_Children:
   - {fileID: 8954632125532654944}
   - {fileID: 8969700868616475887}
@@ -164,8 +164,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.008828163, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 98357c68410f94642a29a2ea1644e0bf, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -192,14 +192,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
 --- !u!50 &6947952037230194248
 Rigidbody2D:
@@ -333,6 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     cost: 0
+    populationType: 0
     armor: 0
     defence: 0
     health: 0
@@ -417,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1
+      value: 2.282
       objectReference: {fileID: 0}
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_SizeDelta.y
@@ -453,11 +454,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 0.0198
       objectReference: {fileID: 0}
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.375
+      value: 1.225
       objectReference: {fileID: 0}
     - target: {fileID: 1256942881626463371, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -471,6 +472,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2812687493606447025, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8ecb42daa1a2f3419c518032e2e74ed, type: 3}
     - target: {fileID: 5443173383051838271, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
       propertyPath: m_SortingLayerID
       value: -1097603413
@@ -483,6 +488,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnitDisplay
       objectReference: {fileID: 0}
+    - target: {fileID: 8155215040484869493, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c8ecb42daa1a2f3419c518032e2e74ed, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07e08125732783143912f0a72c9e4e93, type: 3}
 --- !u!1 &3646947717195092947 stripped

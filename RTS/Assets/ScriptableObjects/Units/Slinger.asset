@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 4
   name: Slinger
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 4345814334211617053, guid: f19d5a2856bf1534e882c1872fb06323, type: 3}
   spawnTime: 5
   actions: {fileID: 0}
   baseStats:

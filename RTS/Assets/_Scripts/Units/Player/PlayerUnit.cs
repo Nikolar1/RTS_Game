@@ -60,7 +60,7 @@ namespace NR.RTS.Units.Player
                 vDS.SetDestination(target, 1.2f);
                 return;
             }
-            else if (isResource)
+            else if (isResource && baseStats.canWork)
             {
                 isMining = true;
                 this.target = target;

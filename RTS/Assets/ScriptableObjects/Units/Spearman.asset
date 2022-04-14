@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 1
   name: Spearman
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 3652563945430283809, guid: 1d34725b7b9e4b64783960890cf6aa3b, type: 3}
   spawnTime: 5
   actions: {fileID: 0}
   baseStats:

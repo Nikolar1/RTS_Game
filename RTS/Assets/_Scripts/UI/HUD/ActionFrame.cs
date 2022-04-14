@@ -161,6 +161,7 @@ namespace NR.RTS.UI.HUD
             Button btn = Instantiate(buildQueueButton, buildQueuelayoutGroup);
             btn.name = "" + index;
             GameObject icon = Instantiate(unit.icon, btn.transform);
+            btn.transform.GetChild(0).transform.SetAsLastSibling();
             btn.GetComponent<BuildQueueAction>().spawnTimer = unit.spawnTime;
             buildQueueButtons.Add(btn);
             if (buildQueue.spawnOrder.Count == 1)

@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 5
   name: Arqubasier
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 7421380699165382007, guid: cc9f2750bf6b6b243bbff7c7a4ff33de, type: 3}
+  icon: {fileID: 5678461669208439444, guid: 6cf773fc6e7f8c641a73528255fb9fba, type: 3}
   spawnTime: 1
   actions: {fileID: 0}
   baseStats:
