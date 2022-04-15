@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   name: Camp
-  buildingPrefab: {fileID: 7396476715808513656, guid: 643be82f78b172341b74598e3ac0e039, type: 3}
+  buildingPrefab: {fileID: 3720355782565115195, guid: 1f52aa2d675a18048ab988b7efbe8d17, type: 3}
   icon: {fileID: 3335368552987494187, guid: 7df33fb1a41233f42835beea07d442b1, type: 3}
   actions: {fileID: 11400000, guid: 7d39db2c40c131d45b777062198e0634, type: 2}
   baseStats:
@@ -25,3 +25,30 @@ MonoBehaviour:
     cost: 400
     armorPiercing: 70
     precission: 90
+    damagedSounds:
+    - {fileID: 8300000, guid: fb8279fd2ec503345b902e6152e03ec3, type: 3}
+    - {fileID: 8300000, guid: db956d34a2006b04a85dcbc3fa0d5abe, type: 3}
+    - {fileID: 8300000, guid: eb4b5dc1bf94238468a40530f1446222, type: 3}
+    - {fileID: 8300000, guid: c7915cb833a692c4893f81d1fd2f0fa5, type: 3}
+    - {fileID: 8300000, guid: 3158315fc30ece647b289dd810ad4227, type: 3}
+    - {fileID: 8300000, guid: 0946f3b39ef14bb4c959487fb47e8538, type: 3}
+    - {fileID: 8300000, guid: e798fcabc1349b446805998465c63696, type: 3}
+    - {fileID: 8300000, guid: 418b74e3e9a216a4fac01570ea218b82, type: 3}
+    - {fileID: 8300000, guid: 7aa6e9b25e339d84baa98b963d30d760, type: 3}
+    - {fileID: 8300000, guid: e63e1b84581a9c243ba625b590d4b140, type: 3}
+    firingSounds:
+    - {fileID: 8300000, guid: 286d4a633df41d44e8cd88c3b1d67928, type: 3}
+    - {fileID: 8300000, guid: 81c5523c1c0343441a397f5c9ab0bb14, type: 3}
+    - {fileID: 8300000, guid: b218391a0e20b80479db09f460b503e5, type: 3}
+    - {fileID: 8300000, guid: 12467e420024c5f44932a80eb8367cf7, type: 3}
+    - {fileID: 8300000, guid: 9d4669c752d98da4c94ba46290f8078b, type: 3}
+    - {fileID: 8300000, guid: 93b2d398da715834ea71890b774474a2, type: 3}
+    - {fileID: 8300000, guid: cb792c8e9ae67c540a920f9002ace95f, type: 3}
+    - {fileID: 8300000, guid: c0ee36ac038fdb44cb376636aa9cd4f5, type: 3}
+    - {fileID: 8300000, guid: eb602f03d421fb148ae9b152b95ccb50, type: 3}
+    - {fileID: 8300000, guid: 22a6f7ff19798e146bd23a83e95199dd, type: 3}
+    - {fileID: 8300000, guid: 9c079f418748ac6429a36ff3e6686d6b, type: 3}
+    - {fileID: 8300000, guid: 77b5f61fbe395464a81a14678dbcc5af, type: 3}
+    - {fileID: 8300000, guid: b4ed129b08592f24c970949722ec7323, type: 3}
+    - {fileID: 8300000, guid: 54c584b96fcadba449d982686d56bbf1, type: 3}
+    - {fileID: 8300000, guid: e7754b1dd480713439ac0e81a846ed58, type: 3}

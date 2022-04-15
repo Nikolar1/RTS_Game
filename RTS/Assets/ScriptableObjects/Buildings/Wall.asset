@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 3
   name: Wall
   buildingPrefab: {fileID: 7396476715808513656, guid: 643be82f78b172341b74598e3ac0e039, type: 3}
-  icon: {fileID: 3453648782308874587, guid: 86981a01b74a00845a05edaf27112b30, type: 3}
+  icon: {fileID: 4659670768262353796, guid: 0b584567d1c02dc44b1a858163aaa5e9, type: 3}
   actions: {fileID: 0}
   baseStats:
     health: 1000
@@ -25,3 +25,15 @@ MonoBehaviour:
     cost: 25
     armorPiercing: 0
     precission: 0
+    damagedSounds:
+    - {fileID: 8300000, guid: fb8279fd2ec503345b902e6152e03ec3, type: 3}
+    - {fileID: 8300000, guid: db956d34a2006b04a85dcbc3fa0d5abe, type: 3}
+    - {fileID: 8300000, guid: eb4b5dc1bf94238468a40530f1446222, type: 3}
+    - {fileID: 8300000, guid: c7915cb833a692c4893f81d1fd2f0fa5, type: 3}
+    - {fileID: 8300000, guid: 3158315fc30ece647b289dd810ad4227, type: 3}
+    - {fileID: 8300000, guid: 0946f3b39ef14bb4c959487fb47e8538, type: 3}
+    - {fileID: 8300000, guid: e798fcabc1349b446805998465c63696, type: 3}
+    - {fileID: 8300000, guid: 418b74e3e9a216a4fac01570ea218b82, type: 3}
+    - {fileID: 8300000, guid: 7aa6e9b25e339d84baa98b963d30d760, type: 3}
+    - {fileID: 8300000, guid: e63e1b84581a9c243ba625b590d4b140, type: 3}
+    firingSounds: []

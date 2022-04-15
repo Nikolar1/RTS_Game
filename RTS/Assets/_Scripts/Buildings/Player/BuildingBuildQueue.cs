@@ -58,6 +58,7 @@ namespace NR.RTS.Buildings.Player
             pU.currentAttackCooldown = RTS.Player.PlayerManager.instance.attackCooldown;
             pU.SetSpeed();
             spawnedObject.GetComponent<SpriteRenderer>().sprite = spawnOrder[0].icon.transform.GetChild(0).GetComponent<Image>().sprite;
+            pU.unitedEffectsSource = RTS.Player.PlayerManager.instance.unitedEffectsSource;
             pU.MoveUnit(rallyPoint.transform.position);
             spawnedObject.transform.GetComponent<Interactable.IUnit>().actions = spawnOrder[0].actions;
             foreach (Transform type in RTS.Player.PlayerManager.instance.playerUnits)

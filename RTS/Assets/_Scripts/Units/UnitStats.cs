@@ -36,6 +36,15 @@ namespace NR.RTS.Units
             public int rangedArmorPiercing;
             public int precission;
             public float shootingSpeed;
+
+            [Space(15)]
+            [Header("Unit Audio Effects")]
+            public AudioClip[] firingSounds;
+            public AudioClip[] fightingSounds;
+            public AudioClip[] damagedSounds;
+            public AudioClip[] selectionSounds;
+            public AudioClip[] orderSounds;
+            public AudioClip[] workingSounds;
         }
 
     }

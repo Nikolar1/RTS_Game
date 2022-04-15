@@ -6,20 +6,20 @@ using NR.RTS.Units;
 
 namespace NR.RTS.Buildings.Player
 {
-    public class PlayerBuilding : MonoBehaviour, Damageable
+    public class PlayerBuilding : MonoBehaviour, IDamageable
     {
         public BuildingStatTypes.Base baseStats;
         public Image healthBarAmount;
         public float currentHealth = 1;
         public Transform target;
-        private Damageable targetUnit;
+        private IDamageable targetUnit;
         private bool hasTarget = false;
-        private float distance;
         private Collider2D[] rangeColliders;
         private const float aggroDistance = 5;
         public float attackCooldown;
         public float currentAttackCooldown;
-
+        public AudioSource effectsSource;
+        public List<AudioClip> clipQueue;
         public bool isBuilt = false;
 
 
@@ -29,6 +29,10 @@ namespace NR.RTS.Buildings.Player
             if (!isBuilt)
             {
                 return;
+            }
+            if (!effectsSource.isPlaying && clipQueue.Count > 0)
+            {
+                PlaySound();
             }
             currentAttackCooldown -= Time.deltaTime;
             if (!hasTarget)
@@ -49,6 +53,13 @@ namespace NR.RTS.Buildings.Player
             }
         }
 
+        private void PlaySound()
+        {
+            effectsSource.clip = clipQueue[0];
+            effectsSource.Play();
+            clipQueue.Remove(clipQueue[0]);
+        }
+
         private void Die()
         {
             InputManager.InputHandler.instance.selectedBuilding = null;
@@ -59,6 +70,11 @@ namespace NR.RTS.Buildings.Player
         public void TakeDamage(float damage, int armorPiercing)
         {
             currentHealth = Combat.TakeDamage(damage, armorPiercing, 0, 0, currentHealth);
+            if (clipQueue.Count<=2)
+            {
+                clipQueue.Add(baseStats.damagedSounds[Random.Range(0, baseStats.damagedSounds.Length - 1)]);
+            }
+            
         }
         private void CheckForEnemyTargets()
         {
@@ -99,15 +115,17 @@ namespace NR.RTS.Buildings.Player
                 return;
             }
             float distance = Vector2.Distance(target.position, transform.position);
-            Units.UnitStats.Base baseStats = new UnitStats.Base();
+            UnitStats.Base baseStats = new UnitStats.Base();
             baseStats.rangedAttack = this.baseStats.attack;
             baseStats.rangedArmorPiercing = this.baseStats.armorPiercing;
             baseStats.precission = this.baseStats.precission;
             baseStats.range = this.baseStats.range;
             baseStats.shootingSpeed = this.baseStats.shootingSpeed;
             float temp = Combat.Attack(currentAttackCooldown, distance, attackCooldown, targetUnit, baseStats, true);
+            
             if (temp >= 0)
             {
+                clipQueue.Add(this.baseStats.firingSounds[Random.Range(0, this.baseStats.firingSounds.Length - 1)]);
                 currentAttackCooldown = temp;
             }
             else if (temp == -2)

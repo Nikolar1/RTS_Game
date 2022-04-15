@@ -6,13 +6,14 @@ namespace NR.RTS.Interactable
     {
         public UI.HUD.PlayerActions actions;
         private Units.Unit.UnitType unitType;
+        public AudioSource unitedEffectsSource;
         public override void OnInteractEnter()
         {
-            
+            Units.Unit unit = Units.UnitHandler.instance.GetUnit(transform.parent.name.ToLower());
             if (InputManager.InputHandler.instance.selectedUnits.Count == 1)
             {
                 UI.HUD.ActionFrame.instance.SetActionButtons(actions, transform);
-                unitType = Units.UnitHandler.instance.GetUnit(transform.parent.name.ToLower()).type;
+                unitType = unit.type;
             }
             else
             {
@@ -24,6 +25,9 @@ namespace NR.RTS.Interactable
                     }
                 }
             }
+            unitedEffectsSource = transform.GetComponent<RTS.Units.Player.PlayerUnit>().unitedEffectsSource;
+            unitedEffectsSource.clip = unit.baseStats.selectionSounds[Random.Range(0, unit.baseStats.selectionSounds.Length - 1)];
+            unitedEffectsSource.Play();
             base.OnInteractEnter();
 
         }

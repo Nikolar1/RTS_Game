@@ -24,8 +24,23 @@ namespace NR.RTS.MainMenu
             mainMixer.SetFloat("mainVolume", volume);
         }
 
-        List<int> widths = new List<int>() {720,1280,1366,1600,1920,2560,3840};
-        List<int> heights = new List<int>() {480,720,768,900,1080,1440,2160};
+        public void SetMusicVolume(float volume)
+        {
+            mainMixer.SetFloat("musicVolume", volume);
+        }
+
+        public void SetVoiceVolume(float volume)
+        {
+            mainMixer.SetFloat("voiceVolume", volume);
+        }
+
+        public void SetEffectVolume(float volume)
+        {
+            mainMixer.SetFloat("effectsVolume", volume);
+        }
+
+        readonly List<int> widths = new List<int>() {720,1280,1366,1600,1920,2560,3840};
+        readonly List<int> heights = new List<int>() {480,720,768,900,1080,1440,2160};
 
         public void SetResolution(int index)
         {

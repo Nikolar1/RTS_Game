@@ -57,6 +57,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\_Scripts\Interactables\Interactable.cs" />
+    <Compile Include="Assets\_Scripts\CampaingMap\ResourceController.cs" />
+    <Compile Include="Assets\_Scripts\MissionMusicMixer.cs" />
     <Compile Include="Assets\_Scripts\UI\HUD\ActionFrame.cs" />
     <Compile Include="Assets\_Scripts\Resources\ResourceHandler.cs" />
     <Compile Include="Assets\_Scripts\Player\PlayerManager.cs" />
@@ -72,14 +74,17 @@
     <Compile Include="Assets\_Scripts\Units\Combat.cs" />
     <Compile Include="Assets\_Scripts\Buildings\Player\BuildingBuildManager.cs" />
     <Compile Include="Assets\_Scripts\Interactables\IUnit.cs" />
+    <Compile Include="Assets\_Scripts\CampaingMap\MissionStarter.cs" />
     <Compile Include="Assets\_Scripts\InputManager\CameraController.cs" />
     <Compile Include="Assets\_Scripts\Resources\BasicResource.cs" />
+    <Compile Include="Assets\_Scripts\Buildings\Player\VoiceAssistant.cs" />
     <Compile Include="Assets\_Scripts\InputManager\InputHandler.cs" />
     <Compile Include="Assets\_Scripts\MainMenu\MainMenu.cs" />
     <Compile Include="Assets\_Scripts\Units\UnitStats.cs" />
     <Compile Include="Assets\_Scripts\Resources\Resource.cs" />
     <Compile Include="Assets\_Scripts\Buildings\BuildingStatTypes.cs" />
     <Compile Include="Assets\_Scripts\Units\Unit.cs" />
+    <Compile Include="Assets\_Scripts\CampaingMap\InteractiveMission.cs" />
     <Compile Include="Assets\_Scripts\Units\VectorDestinationSetter.cs" />
     <Compile Include="Assets\_Scripts\UI\HUD\BuildQueueAction.cs" />
     <Compile Include="Assets\_Scripts\Buildings\Player\PlayerBuilding.cs" />
@@ -88,14 +93,9 @@
     <Compile Include="Assets\_Scripts\Interactables\IBuilding.cs" />
     <Compile Include="Assets\_Scripts\Buildings\Player\BuildingBuildQueue.cs" />
     <Compile Include="Assets\_Scripts\MainMenu\SettingsMenu.cs" />
-    <Compile Include="Assets\_Scripts\Units\Damageable.cs" />
+    <Compile Include="Assets\_Scripts\Units\IDamageable.cs" />
     <Compile Include="Assets\_Scripts\Buildings\BuildingHandler.cs" />
-    <Compile Include="Assets\_Scripts\CampaingMap\MissionStarter.cs" />
-    <Compile Include="Assets\_Scripts\CampaingMap\InteractiveMission.cs" />
-    <Compile Include="Assets\_Scripts\CampaingMap\ResourceController.cs" />
     <Compile Include="Assets\_Scripts\CampaingMap\ProgressKeeper.cs" />
-    <Compile Include="Assets\_Scripts\MissionMusicMixer.cs" />
-    <Compile Include="Assets\_Scripts\Buildings\Player\VoiceAssistant.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

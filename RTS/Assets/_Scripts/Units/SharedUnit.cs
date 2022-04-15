@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace NR.RTS.Units
 {
     [RequireComponent(typeof(VectorDestinationSetter))]
-    public abstract class SharedUnit : MonoBehaviour, Damageable
+    public abstract class SharedUnit : MonoBehaviour, IDamageable
     {
         public UnitStats.Base baseStats;
         public float attackCooldown;
@@ -21,11 +21,27 @@ namespace NR.RTS.Units
 
         protected Transform target;
         protected bool hasTarget = false;
-        protected Damageable targetUnit;
+        protected IDamageable targetUnit;
         protected VectorDestinationSetter vDS;
         protected const float aggroDistance = 10;
         protected Collider2D[] rangeColliders;
+        public AudioSource effectsSource;
+        public List<AudioClip> clipQueue;
 
+        protected void SharedUpdate()
+        {
+            if (!effectsSource.isPlaying && clipQueue.Count > 0)
+            {
+                PlaySound();
+            }
+        }
+
+        private void PlaySound()
+        {
+            effectsSource.clip = clipQueue[0];
+            effectsSource.Play();
+            clipQueue.Remove(clipQueue[0]);
+        }
 
 
         protected void Awake()
@@ -37,6 +53,10 @@ namespace NR.RTS.Units
         public void TakeDamage(float damage, int armorPiercing)
         {
             currentHealth = Combat.TakeDamage(damage, armorPiercing, baseStats.armor, baseStats.defence, currentHealth);
+            if (clipQueue.Count <= 2)
+            {
+                clipQueue.Add(baseStats.damagedSounds[Random.Range(0, baseStats.damagedSounds.Length - 1)]);
+            }
         }
 
         protected void Die()
@@ -53,9 +73,11 @@ namespace NR.RTS.Units
                 return;
             }
             float distance = Vector2.Distance(target.position, transform.position);
-            if (currentAttackCooldown <= 0 && distance <= 1.4f)
+            if (currentAttackCooldown <= 0 && distance <= Mathf.Max(target.transform.GetComponent<BoxCollider2D>().size.x, target.transform.GetComponent<BoxCollider2D>().size.y) + .1f)
             {
                 float temp = target.GetComponent<Buildings.Player.PlayerBuilding>().Repair();
+                currentAttackCooldown = attackCooldown;
+                clipQueue.Add(baseStats.workingSounds[Random.Range(0, baseStats.workingSounds.Length - 1)]);
                 if (temp == -1)
                 {
                     target = null;
@@ -70,6 +92,7 @@ namespace NR.RTS.Units
         {
             if (target == null)
             {
+                clipQueue.Clear();
                 hasTarget = false;
                 vDS.RemoveDestination();
                 return;
@@ -78,10 +101,19 @@ namespace NR.RTS.Units
             float temp = Combat.Attack(currentAttackCooldown, distance, attackCooldown, targetUnit, baseStats);
             if (temp >= 0)
             {
+                if (distance > 2f)
+                {
+                    clipQueue.Add(baseStats.firingSounds[Random.Range(0, baseStats.firingSounds.Length - 1)]);
+                }
+                else
+                {
+                    clipQueue.Add(baseStats.fightingSounds[Random.Range(0, baseStats.fightingSounds.Length - 1)]);
+                }
                 currentAttackCooldown = temp;
             }
             else if (temp == -2)
             {
+                clipQueue.Clear();
                 hasTarget = false;
                 vDS.RemoveDestination();
                 return;

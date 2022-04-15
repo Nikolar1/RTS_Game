@@ -8,7 +8,6 @@ namespace NR.RTS.Units {
     public class UnitHandler : MonoBehaviour
     {
         public static UnitHandler instance;
-        [SerializeField]
         public Unit archer, arqubasier, horseman, slinger, spearman, swordsman, worker;
 
         public LayerMask pUnitLayer, eUnitLayer;

@@ -8,9 +8,6 @@ namespace NR.RTS.InputManager {
     public class InputHandler : MonoBehaviour
     {
         public static InputHandler instance;
-
-        private RaycastHit2D hit;
-
         public List<Transform> selectedUnits = new List<Transform>();
         public Transform selectedBuilding = null;
 

@@ -15,10 +15,11 @@ namespace NR.RTS.Player
         public Transform enemyUnits;
         public Transform playerBuildings;
         public Transform resources;
+        public AudioSource unitedEffectsSource;
 
         private bool isInBuildMode = false;
 
-        public float attackCooldown = 1;
+        public float attackCooldown = 4;
         public float buildSpeed = 100;
         public float timeBetweenTargetChecks = 5;
 
@@ -102,6 +103,7 @@ namespace NR.RTS.Player
                             pU.SetSpeed();
                             tf.GetComponent<Interactable.IUnit>().actions = baseUnit.actions;
                             tf.GetComponent<SpriteRenderer>().sprite = baseUnit.icon.transform.GetChild(0).GetComponent<Image>().sprite;
+                            pU.unitedEffectsSource = this.unitedEffectsSource;
                         }
                         else if (type == enemyUnits)
                         {

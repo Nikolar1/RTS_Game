@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 1
   name: Spearman
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
-  icon: {fileID: 3652563945430283809, guid: 1d34725b7b9e4b64783960890cf6aa3b, type: 3}
+  icon: {fileID: 7403931477541164701, guid: f6188d0c04f729642b15be80dcb20750, type: 3}
   spawnTime: 5
   actions: {fileID: 0}
   baseStats:
@@ -34,3 +34,51 @@ MonoBehaviour:
     rangedArmorPiercing: 0
     precission: 0
     shootingSpeed: 0
+    firingSounds: []
+    fightingSounds:
+    - {fileID: 8300000, guid: 94c607edad1e7794e9b26e57cf3799b4, type: 3}
+    - {fileID: 8300000, guid: d6f0b48333cab1b4c871cac6a36b900c, type: 3}
+    - {fileID: 8300000, guid: 0cd4651b21ba99747be4eceae13508a0, type: 3}
+    - {fileID: 8300000, guid: 5141ebc8ca3288e46ba5c009e21397dd, type: 3}
+    - {fileID: 8300000, guid: 1384495579f7dd44d93ada05b4ab492c, type: 3}
+    - {fileID: 8300000, guid: fe9e47f0c14a2ec4bada959ea761c49e, type: 3}
+    - {fileID: 8300000, guid: c84230d3d8ff33c4f9fff915dff234c9, type: 3}
+    - {fileID: 8300000, guid: 6e13eecde9c6c6945a902605c0f67a9b, type: 3}
+    - {fileID: 8300000, guid: 9e7c3495ec0075848b1806c650aa6cc0, type: 3}
+    - {fileID: 8300000, guid: 1a9a7047ebe7ea644beca97d0239dac1, type: 3}
+    - {fileID: 8300000, guid: 10c5ff12c15138e408ab6ee7124f0f1a, type: 3}
+    - {fileID: 8300000, guid: 8445bb8d7438e91479ed1a34048e5e77, type: 3}
+    - {fileID: 8300000, guid: 163bfc447abe24f47ace4b3b55161dc8, type: 3}
+    - {fileID: 8300000, guid: f95230ab4c926a64995c07f2684d7937, type: 3}
+    - {fileID: 8300000, guid: b00595d193230a940ac23202fe3e5da4, type: 3}
+    - {fileID: 8300000, guid: cbf95c60415f22146a396e74f25a50fc, type: 3}
+    - {fileID: 8300000, guid: e9ddd72b2de30dd41a872be89348cbdf, type: 3}
+    - {fileID: 8300000, guid: cdf09235e3289fd4b97a4097f2d7d482, type: 3}
+    - {fileID: 8300000, guid: 68691b122f7e8c84fbb5366da687ff86, type: 3}
+    - {fileID: 8300000, guid: 9155a4ca66982324cb0a499f6c741111, type: 3}
+    - {fileID: 8300000, guid: 092ff7892e508d04995fb56f609835f0, type: 3}
+    - {fileID: 8300000, guid: b4d42c704047b7c4d9b70a2a0d216179, type: 3}
+    - {fileID: 8300000, guid: bdab0bcd1599b2744b9e2ff8362abed9, type: 3}
+    damagedSounds:
+    - {fileID: 8300000, guid: be816a8e6c7d67c4db64bc3addbc99c9, type: 3}
+    - {fileID: 8300000, guid: d3bf804948c0f7d458d416f66a351823, type: 3}
+    - {fileID: 8300000, guid: 0e6733d27ce1ad848a11dafc8bf94f5e, type: 3}
+    - {fileID: 8300000, guid: f702997e4ec61134e8d1003d09f3bdcb, type: 3}
+    - {fileID: 8300000, guid: d76e2f4de53340646b0cdfa5033f3808, type: 3}
+    - {fileID: 8300000, guid: 953b61fddaec9804398d54ed229b2276, type: 3}
+    - {fileID: 8300000, guid: edf0ea79c019e6f4ab9837e5c4eac16b, type: 3}
+    - {fileID: 8300000, guid: 8a3cb05e923911049ae34d8084956834, type: 3}
+    - {fileID: 8300000, guid: 309b652c8e430274d95dca9fc5186b1a, type: 3}
+    - {fileID: 8300000, guid: c6b68b061a8ee5c4fa8ae946762055f7, type: 3}
+    - {fileID: 8300000, guid: c366e1e4f2c048a438588f3abba6e4d4, type: 3}
+    - {fileID: 8300000, guid: a6d8da2275e0d634398d322138f9c1f4, type: 3}
+    - {fileID: 8300000, guid: 6e91f26881f08714191f02aefbbde171, type: 3}
+    - {fileID: 8300000, guid: 2a7f6041ec9b3c64a862473957fe37e8, type: 3}
+    - {fileID: 8300000, guid: b8bd7169b2cc94a4498d95ed6be32fad, type: 3}
+    - {fileID: 8300000, guid: a42b60744c815c947bf14c6f52183ccb, type: 3}
+    - {fileID: 8300000, guid: 24da8139e31240842ba7daf3fba3a595, type: 3}
+    selectionSounds:
+    - {fileID: 8300000, guid: 07a2d9a0ca3e61c4b8e4657f2c8a4666, type: 3}
+    orderSounds:
+    - {fileID: 8300000, guid: e6e3dc9811ebfd2498276de53953a0b7, type: 3}
+    workingSounds: []

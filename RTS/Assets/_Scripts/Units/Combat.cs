@@ -27,7 +27,7 @@ namespace NR.RTS.Units
             }
             return false;
         }
-        public static float Attack(float currentAttackCooldown, float distance, float attackCooldown, Damageable aggroUnit, UnitStats.Base baseStats, bool isBuilding = false)
+        public static float Attack(float currentAttackCooldown, float distance, float attackCooldown, IDamageable aggroUnit, UnitStats.Base baseStats, bool isBuilding = false)
         {
             if(aggroUnit == null)
             {

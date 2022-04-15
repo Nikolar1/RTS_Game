@@ -9,9 +9,11 @@ namespace NR.RTS.Units.Player
     [RequireComponent(typeof(VectorDestinationSetter))]
     public class PlayerUnit : SharedUnit
     {
+        public AudioSource unitedEffectsSource;
         private bool isMining = false;
         private void Update()
         {
+            base.SharedUpdate();
             currentAttackCooldown -= Time.deltaTime;
             if (isRepairing)
             {
@@ -73,6 +75,8 @@ namespace NR.RTS.Units.Player
 
             //1.2 is the distance needed for the unit to stop just as it collides with the enemy
             vDS.SetDestination(target, 1.2f + baseStats.range);
+            unitedEffectsSource.clip = baseStats.orderSounds[UnityEngine.Random.Range(0, baseStats.orderSounds.Length - 1)];
+            unitedEffectsSource.Play();
         }
 
         public void Work()
@@ -96,6 +100,7 @@ namespace NR.RTS.Units.Player
                 float temp = target.GetComponent<Resources.Resource>().Mine();
                 currentAttackCooldown = attackCooldown;
                 RTS.Player.PlayerResourceManager.instance.AddGold(temp);
+                clipQueue.Add(baseStats.workingSounds[UnityEngine.Random.Range(0, baseStats.workingSounds.Length - 1)]);
                 if (temp < 25)
                 {
                     target = null;

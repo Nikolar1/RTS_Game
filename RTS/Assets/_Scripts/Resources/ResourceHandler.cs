@@ -8,7 +8,6 @@ namespace NR.RTS.Resources
     public class ResourceHandler : MonoBehaviour
     {
         public static ResourceHandler instance;
-        [SerializeField]
         public BasicResource gold;
 
         private void Awake()

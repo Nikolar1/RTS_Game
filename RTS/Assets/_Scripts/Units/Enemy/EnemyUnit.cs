@@ -15,6 +15,7 @@ namespace NR.RTS.Units.Enemy
 
         private void Update()
         {
+            base.SharedUpdate();
             currentAttackCooldown -= Time.deltaTime;
             if (!hasTarget)
             {

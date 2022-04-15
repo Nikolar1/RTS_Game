@@ -12,6 +12,8 @@ namespace NR.RTS.Buildings
         {
             public float health, attack,  range,  shootingSpeed, cost;
             public int armorPiercing, precission;
+            public AudioClip[] damagedSounds;
+            public AudioClip[] firingSounds;
         }
     }
 }
