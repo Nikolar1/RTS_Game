@@ -97,7 +97,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a42b60744c815c947bf14c6f52183ccb, type: 3}
     - {fileID: 8300000, guid: 24da8139e31240842ba7daf3fba3a595, type: 3}
     selectionSounds:
-    - {fileID: 8300000, guid: 07a2d9a0ca3e61c4b8e4657f2c8a4666, type: 3}
+    - {fileID: 8300000, guid: 7494558a56ba0cd43b47d4b5e203f041, type: 3}
+    - {fileID: 8300000, guid: 5e9df7e272b4ab541b4e53b5a606c080, type: 3}
+    - {fileID: 8300000, guid: 62489fd30246dcd429c1fd4da8889aa7, type: 3}
+    - {fileID: 8300000, guid: ca8b3549ddf4d0e43a2d65be8c3589aa, type: 3}
     orderSounds:
-    - {fileID: 8300000, guid: e6e3dc9811ebfd2498276de53953a0b7, type: 3}
+    - {fileID: 8300000, guid: a695a35c1bb04d145a11b1e0ebc8dd49, type: 3}
+    - {fileID: 8300000, guid: c8b831847150d08438fc8b7c41bdc194, type: 3}
+    - {fileID: 8300000, guid: de73632b73b940047b2729eeb02f1162, type: 3}
+    - {fileID: 8300000, guid: 19d8eaab1320a7443b5323a1110f75f0, type: 3}
     workingSounds: []

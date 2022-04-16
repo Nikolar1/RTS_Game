@@ -83,6 +83,7 @@ namespace NR.RTS.Buildings.Player
             {
                 actionTimer.StopTimer();
             }
+            RTS.Player.VoiceAssistant.instance.PlayTrainingComplete();
         }
 
         private Units.Unit IsUnit(string name)
@@ -124,7 +125,7 @@ namespace NR.RTS.Buildings.Player
                     actionTimer.StartTimer(spawnOrder[0].spawnTime);
                 }
             }
-
+            RTS.Player.VoiceAssistant.instance.PlayTrainingCanceled();
         }
 
         public void PauseTimer()

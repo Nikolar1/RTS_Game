@@ -49,6 +49,12 @@ namespace NR.RTS.Player
                 InputHandler.instance.HandleUnitMovment();
             }
             InputHandler.instance.HandleCameraMovment();
+
+            if (!unitedEffectsSource.isPlaying && unitedEffectsSource.clip != null)
+            {
+                unitedEffectsSource.Play();
+                unitedEffectsSource.clip = null;
+            }
         }
 
         public void EnterBuildMode()

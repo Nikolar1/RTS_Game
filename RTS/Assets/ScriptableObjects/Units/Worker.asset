@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Worker
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
   icon: {fileID: 6441969416666016147, guid: a9c0786f0f9a08745a033f2ba6117727, type: 3}
-  spawnTime: 5
+  spawnTime: 3
   actions: {fileID: 11400000, guid: 3d89649d944b6a649a4aa6b6741c8a48, type: 2}
   baseStats:
     cost: 50
@@ -78,9 +78,13 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a42b60744c815c947bf14c6f52183ccb, type: 3}
     - {fileID: 8300000, guid: 24da8139e31240842ba7daf3fba3a595, type: 3}
     selectionSounds:
-    - {fileID: 8300000, guid: 07a2d9a0ca3e61c4b8e4657f2c8a4666, type: 3}
+    - {fileID: 8300000, guid: 281e67c1105dd734e918d295c49b7514, type: 3}
+    - {fileID: 8300000, guid: 5f782cc32a40da644a5e2f253d985830, type: 3}
+    - {fileID: 8300000, guid: 8515e17b20bfb4c459037ad270719dd0, type: 3}
     orderSounds:
-    - {fileID: 8300000, guid: e6e3dc9811ebfd2498276de53953a0b7, type: 3}
+    - {fileID: 8300000, guid: 8c7702c743801584e87fd0c8cbf1328d, type: 3}
+    - {fileID: 8300000, guid: 7666f41e995c1c441ada9edebb986170, type: 3}
+    - {fileID: 8300000, guid: 36f596209915969489c55a98eed27373, type: 3}
     workingSounds:
     - {fileID: 8300000, guid: 6dffb14ff64a0014bb44c5018ec61914, type: 3}
     - {fileID: 8300000, guid: 2db16a311450d4b4d8c3a4c88402f875, type: 3}

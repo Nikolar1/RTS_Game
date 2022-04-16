@@ -37,6 +37,7 @@ ScriptsOnlyBuild:
     - AstarPath
     - Pathfinding.AIDestinationSetter
     - Pathfinding.AIPath
+    - Pathfinding.DynamicGridObstacle
     - Pathfinding.FunnelModifier
     - Pathfinding.Seeker
     Unity.2D.Animation.Editor.dll:
@@ -106,23 +107,23 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1464}
     - Class: 114
-      Script: {instanceID: 2330}
+      Script: {instanceID: 1466}
     - Class: 114
-      Script: {instanceID: 2788}
+      Script: {instanceID: 1732}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2336}
     - Class: 114
-      Script: {instanceID: 3520}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 3642}
+      Script: {instanceID: 2980}
     - Class: 114
-      Script: {instanceID: 28272}
+      Script: {instanceID: 3526}
     - Class: 114
-      Script: {instanceID: 28282}
+      Script: {instanceID: 3762}
     - Class: 114
-      Script: {instanceID: 29092}
+      Script: {instanceID: 4748}
     - Class: 114
-      Script: {instanceID: 36112}
+      Script: {instanceID: 6126}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -179,35 +180,37 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1464}
     - Class: 114
-      Script: {instanceID: 1660}
+      Script: {instanceID: 1466}
     - Class: 114
-      Script: {instanceID: 1742}
+      Script: {instanceID: 1662}
     - Class: 114
-      Script: {instanceID: 2330}
+      Script: {instanceID: 1746}
     - Class: 114
-      Script: {instanceID: 2788}
+      Script: {instanceID: 2336}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2662}
     - Class: 114
-      Script: {instanceID: 3520}
+      Script: {instanceID: 2794}
+    - Class: 114
+      Script: {instanceID: 2980}
     - Class: 114
       Script: {instanceID: 3526}
     - Class: 114
-      Script: {instanceID: 3642}
+      Script: {instanceID: 3532}
     - Class: 114
-      Script: {instanceID: 3814}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 4132}
+      Script: {instanceID: 4140}
     - Class: 114
-      Script: {instanceID: 4316}
+      Script: {instanceID: 4324}
     - Class: 114
-      Script: {instanceID: 4534}
+      Script: {instanceID: 4542}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 4782}
     - Class: 114
-      Script: {instanceID: 4990}
+      Script: {instanceID: 5000}
     - Class: 114
-      Script: {instanceID: 5698}
+      Script: {instanceID: 5708}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -268,81 +271,83 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1464}
     - Class: 114
-      Script: {instanceID: 1942}
+      Script: {instanceID: 1466}
     - Class: 114
-      Script: {instanceID: 1954}
+      Script: {instanceID: 1798}
+    - Class: 114
+      Script: {instanceID: 1948}
     - Class: 114
       Script: {instanceID: 1960}
     - Class: 114
-      Script: {instanceID: 2000}
+      Script: {instanceID: 1966}
     - Class: 114
-      Script: {instanceID: 2190}
+      Script: {instanceID: 2006}
     - Class: 114
-      Script: {instanceID: 2250}
+      Script: {instanceID: 2196}
     - Class: 114
-      Script: {instanceID: 2330}
+      Script: {instanceID: 2256}
     - Class: 114
-      Script: {instanceID: 2416}
+      Script: {instanceID: 2336}
     - Class: 114
-      Script: {instanceID: 2450}
+      Script: {instanceID: 2422}
     - Class: 114
-      Script: {instanceID: 2788}
+      Script: {instanceID: 2456}
     - Class: 114
-      Script: {instanceID: 2800}
+      Script: {instanceID: 2662}
     - Class: 114
-      Script: {instanceID: 2974}
+      Script: {instanceID: 2794}
     - Class: 114
-      Script: {instanceID: 3044}
+      Script: {instanceID: 2806}
     - Class: 114
-      Script: {instanceID: 3074}
+      Script: {instanceID: 2980}
     - Class: 114
-      Script: {instanceID: 3098}
+      Script: {instanceID: 3050}
     - Class: 114
-      Script: {instanceID: 3314}
+      Script: {instanceID: 3080}
     - Class: 114
-      Script: {instanceID: 3512}
+      Script: {instanceID: 3104}
     - Class: 114
-      Script: {instanceID: 3520}
+      Script: {instanceID: 3320}
     - Class: 114
-      Script: {instanceID: 3642}
+      Script: {instanceID: 3518}
     - Class: 114
-      Script: {instanceID: 3758}
+      Script: {instanceID: 3526}
     - Class: 114
-      Script: {instanceID: 3814}
+      Script: {instanceID: 3764}
     - Class: 114
-      Script: {instanceID: 4040}
+      Script: {instanceID: 3820}
     - Class: 114
-      Script: {instanceID: 4132}
+      Script: {instanceID: 4034}
     - Class: 114
-      Script: {instanceID: 4316}
+      Script: {instanceID: 4048}
     - Class: 114
-      Script: {instanceID: 4558}
+      Script: {instanceID: 4140}
     - Class: 114
-      Script: {instanceID: 4810}
+      Script: {instanceID: 4324}
     - Class: 114
-      Script: {instanceID: 4818}
+      Script: {instanceID: 4566}
     - Class: 114
-      Script: {instanceID: 5094}
+      Script: {instanceID: 4820}
     - Class: 114
-      Script: {instanceID: 5172}
+      Script: {instanceID: 4828}
     - Class: 114
-      Script: {instanceID: 5254}
+      Script: {instanceID: 5104}
     - Class: 114
-      Script: {instanceID: 5462}
+      Script: {instanceID: 5182}
     - Class: 114
-      Script: {instanceID: 5520}
+      Script: {instanceID: 5264}
     - Class: 114
-      Script: {instanceID: 5864}
+      Script: {instanceID: 5472}
     - Class: 114
-      Script: {instanceID: 5896}
+      Script: {instanceID: 5530}
     - Class: 114
-      Script: {instanceID: 6072}
+      Script: {instanceID: 5874}
     - Class: 114
-      Script: {instanceID: 6078}
+      Script: {instanceID: 5906}
     - Class: 114
-      Script: {instanceID: 39024}
+      Script: {instanceID: 6082}
     - Class: 114
-      Script: {instanceID: 53018}
+      Script: {instanceID: 6088}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -380,6 +385,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GraphicRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 69415240821be7986b27e72bf9609a30
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: de673e1340c90424cfde9cdd2df0ab93
@@ -442,6 +453,12 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
+      Hash: 28751a6838dbd844fa0acd4b102667de
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: NR.RTS.CampaingMap
+    className: ResourceController
+  - hash:
+      serializedVersion: 2
       Hash: 21a9c6dbf300fc1f6dc15ca7e2c39a37
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -458,6 +475,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Shadow
+  - hash:
+      serializedVersion: 2
+      Hash: 9d1fc7f68703b4b48354eb99da1e40de
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: NR.RTS
+    className: MissionMusicMixer
   - hash:
       serializedVersion: 2
       Hash: 607ec805afd8d80d43f15ef06639440f
@@ -490,7 +513,7 @@ ScriptsOnlyBuild:
     className: ResourceHandler
   - hash:
       serializedVersion: 2
-      Hash: 5eff640f0a5dab8c482e5c9fcc8c1308
+      Hash: 6be241f00dc775a783379263b334c142
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Player
     className: PlayerManager
@@ -568,7 +591,7 @@ ScriptsOnlyBuild:
     className: CinemachinePixelPerfect
   - hash:
       serializedVersion: 2
-      Hash: ec9bd6b40db47d2cadef0abcb9127616
+      Hash: 08827f7eff4e2938025acb96ff462747
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Units.Player
     className: PlayerUnit
@@ -670,7 +693,7 @@ ScriptsOnlyBuild:
     className: ObjectPlacer
   - hash:
       serializedVersion: 2
-      Hash: ec9bd6b40db47d2cadef0abcb9127616
+      Hash: c7b135bccd5388c1e5066429ad87369a
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Units.Enemy
     className: EnemyUnit
@@ -772,7 +795,7 @@ ScriptsOnlyBuild:
     className: NodeLink
   - hash:
       serializedVersion: 2
-      Hash: 59c9668c583d81c2caca465ef0e3967d
+      Hash: bb5564945dec4623730d166b4ed9d7a3
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Interactable
     className: IUnit
@@ -814,12 +837,6 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: 69415240821be7986b27e72bf9609a30
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
       Hash: 349d08daa6108b9a28f8c38fd40ce96f
     assemblyName: Unity.2D.SpriteShape.Runtime.dll
     namespaceName: UnityEngine.U2D
@@ -830,6 +847,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: a199710e0ece0e50ff1acb80aeefb4dc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: NR.RTS.CampaingMap
+    className: MissionStarter
   - hash:
       serializedVersion: 2
       Hash: 87434363748e17c5ddc9a2bced550de3
@@ -854,6 +877,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Outline
+  - hash:
+      serializedVersion: 2
+      Hash: 3b1e45f0662e896fe9e59cac0b7b80fa
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: NR.RTS.Player
+    className: VoiceAssistant
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -982,7 +1011,7 @@ ScriptsOnlyBuild:
     className: AnimationLink
   - hash:
       serializedVersion: 2
-      Hash: 19cf119be6584bd0b785fed3ef703d81
+      Hash: 3f6cadc8ef644f52710f4b37524374e9
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Units
     className: Unit
@@ -1010,6 +1039,12 @@ ScriptsOnlyBuild:
     assemblyName: AstarPathfindingProject.dll
     namespaceName: Pathfinding
     className: NodeLink2
+  - hash:
+      serializedVersion: 2
+      Hash: c55ff2084dca8b4012133b4198a32570
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: NR.RTS.CampaingMap
+    className: InteractiveMission
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -1084,7 +1119,7 @@ ScriptsOnlyBuild:
     className: ControlPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: a46731b4a56420089783c799e9964eaa
+      Hash: 5bb8442b4f2b257c1f47c9a4eda69034
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Buildings.Player
     className: PlayerBuilding
@@ -1120,7 +1155,7 @@ ScriptsOnlyBuild:
     className: SpriteSkinEntity
   - hash:
       serializedVersion: 2
-      Hash: efbafeb57022629d0ed9fec6cb40b0ee
+      Hash: b9e223528ea85f74a1ac2867b17187af
     assemblyName: Assembly-CSharp.dll
     namespaceName: NR.RTS.Buildings
     className: BasicBuilding
@@ -1234,6 +1269,12 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
+      Hash: b473d4ec6cf83cbb65e9fc15727c4079
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: NR.RTS.CampaingMap
+    className: ProgressKeeper
+  - hash:
+      serializedVersion: 2
       Hash: 762a30c8d779b11af16ed9ce1f2d32fa
     assemblyName: Unity.2D.IK.Runtime.dll
     namespaceName: UnityEngine.U2D.IK
@@ -1244,45 +1285,9 @@ ScriptsOnlyBuild:
     assemblyName: AstarPathfindingProject.dll
     namespaceName: Pathfinding
     className: SingleNodeBlocker
-  - hash:
-      serializedVersion: 2
-      Hash: a199710e0ece0e50ff1acb80aeefb4dc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: NR.RTS.CampaingMap
-    className: MissionStarter
-  - hash:
-      serializedVersion: 2
-      Hash: c55ff2084dca8b4012133b4198a32570
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: NR.RTS.CampaingMap
-    className: InteractiveMission
-  - hash:
-      serializedVersion: 2
-      Hash: 28751a6838dbd844fa0acd4b102667de
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: NR.RTS.CampaingMap
-    className: ResourceController
-  - hash:
-      serializedVersion: 2
-      Hash: b473d4ec6cf83cbb65e9fc15727c4079
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: NR.RTS.CampaingMap
-    className: ProgressKeeper
-  - hash:
-      serializedVersion: 2
-      Hash: 9d1fc7f68703b4b48354eb99da1e40de
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: NR.RTS
-    className: MissionMusicMixer
-  - hash:
-      serializedVersion: 2
-      Hash: 3b1e45f0662e896fe9e59cac0b7b80fa
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: NR.RTS.Player
-    className: VoiceAssistant
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/CampaingMap.unity
   - Assets/Scenes/UnitTestInviorment.unity
-  playerPath: D:/unity projects/Seminarski_rad_C_RTS_Igra/Builds/0.01/RTS.exe
+  playerPath: D:/unity projects/Seminarski_rad_C_RTS_Igra/Builds/0.1/RTS.exe

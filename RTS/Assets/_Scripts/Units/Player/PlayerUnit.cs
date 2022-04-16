@@ -11,6 +11,7 @@ namespace NR.RTS.Units.Player
     {
         public AudioSource unitedEffectsSource;
         private bool isMining = false;
+        private bool spawned = false;
         private void Update()
         {
             base.SharedUpdate();
@@ -45,6 +46,15 @@ namespace NR.RTS.Units.Player
         {
             hasTarget = false;
             vDS.SetDestination(destination);
+            if (spawned)
+            {
+                unitedEffectsSource.clip = baseStats.orderSounds[UnityEngine.Random.Range(0, baseStats.orderSounds.Length - 1)];
+                unitedEffectsSource.Play();
+            }
+            else
+            {
+                spawned = true;
+            }
         }
 
         public void MoveUnit(Transform target, bool isPlayerOwnedTarget = true, bool isResource = false)
@@ -115,6 +125,7 @@ namespace NR.RTS.Units.Player
         {
             InputManager.InputHandler.instance.selectedUnits.Remove(gameObject.transform);
             transform.GetComponent<Interactable.IUnit>().OnInteractExit();
+            RTS.Player.VoiceAssistant.instance.PlayUnitLost();
             base.Die();
         }
 

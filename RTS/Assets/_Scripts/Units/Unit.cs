@@ -42,6 +42,7 @@ namespace NR.RTS.Units {
                 RTS.Player.PlayerResourceManager.instance.RemovePopulation(baseStats.populationType);
                 return true;
             }
+            RTS.Player.VoiceAssistant.instance.PlayConstructionInterupted();
             return false;
         }
 

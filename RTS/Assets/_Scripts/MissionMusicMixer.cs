@@ -58,6 +58,10 @@ namespace NR.RTS
             if (this.isPeacefull != isPeacefull)
             {
                 this.isPeacefull = isPeacefull;
+                if (!isPeacefull)
+                {
+                    Player.VoiceAssistant.instance.PlayUnderAttack();
+                }
                 PlayRandomMusic();
             }
             else if (!isPeacefull)

@@ -52,6 +52,7 @@ namespace NR.RTS.Resources
 
         public void Depleate()
         {
+            Player.VoiceAssistant.instance.PlayResourceDepleated();
             Destroy(gameObject);
         }
 

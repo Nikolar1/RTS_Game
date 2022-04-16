@@ -9,7 +9,13 @@ namespace NR.RTS.Player
         public enum ClipPurpose
         {
             ConstructionInterupted,
-            ConstructionComplete
+            ConstructionComplete,
+            TrainingComplete,
+            TraniningCanceled,
+            UnitLost,
+            UnderAttack,
+            BuildingDestroyed,
+            ResourceDepleated
         };
         public static VoiceAssistant instance;
         public AudioSource voiceAssistantSource;
@@ -36,33 +42,60 @@ namespace NR.RTS.Player
             clipQueue.Remove(clipQueue[0]);
         }
 
-        public void PlayConstructionInterupted()
+        private void AddToClipQueue(AudioClip clip)
         {
-            int i = 0;
-            foreach (ClipPurpose purpose in clipPurposes)
+            if (clipQueue.Count<3)
             {
-                
-                if (purpose == ClipPurpose.ConstructionInterupted)
-                {
-                    clipQueue.Add(voiceAudioClips[i]);
-                    break;
-                }
-                i++;
+                clipQueue.Add(clip);
             }
         }
-        public void PlayConstructionComplete()
+
+        public void PlayClip(ClipPurpose desiredPurpose)
         {
             int i = 0;
             foreach (ClipPurpose purpose in clipPurposes)
             {
 
-                if (purpose == ClipPurpose.ConstructionComplete)
+                if (purpose == desiredPurpose)
                 {
-                    clipQueue.Add(voiceAudioClips[i]);
+                    AddToClipQueue(voiceAudioClips[i]);
                     break;
                 }
                 i++;
             }
+        }
+
+        public void PlayConstructionInterupted()
+        {
+            PlayClip(ClipPurpose.ConstructionInterupted);
+        }
+        public void PlayConstructionComplete()
+        {
+            PlayClip(ClipPurpose.ConstructionComplete);
+        }
+        public void PlayTrainingComplete()
+        {
+            PlayClip(ClipPurpose.TrainingComplete);
+        }
+        public void PlayTrainingCanceled()
+        {
+            PlayClip(ClipPurpose.TraniningCanceled);
+        }
+        public void PlayUnitLost()
+        {
+            PlayClip(ClipPurpose.UnitLost);
+        }
+        public void PlayUnderAttack()
+        {
+            PlayClip(ClipPurpose.UnderAttack);
+        }
+        public void PlayBuildingDestroyed()
+        {
+            PlayClip(ClipPurpose.BuildingDestroyed);
+        }
+        public void PlayResourceDepleated()
+        {
+            PlayClip(ClipPurpose.ResourceDepleated);
         }
     }
 }

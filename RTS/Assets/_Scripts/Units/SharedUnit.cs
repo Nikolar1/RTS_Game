@@ -53,7 +53,7 @@ namespace NR.RTS.Units
         public void TakeDamage(float damage, int armorPiercing)
         {
             currentHealth = Combat.TakeDamage(damage, armorPiercing, baseStats.armor, baseStats.defence, currentHealth);
-            if (clipQueue.Count <= 2)
+            if (clipQueue.Count == 0)
             {
                 clipQueue.Add(baseStats.damagedSounds[Random.Range(0, baseStats.damagedSounds.Length - 1)]);
             }

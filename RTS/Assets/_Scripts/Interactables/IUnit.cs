@@ -25,9 +25,11 @@ namespace NR.RTS.Interactable
                     }
                 }
             }
+
             unitedEffectsSource = transform.GetComponent<RTS.Units.Player.PlayerUnit>().unitedEffectsSource;
             unitedEffectsSource.clip = unit.baseStats.selectionSounds[Random.Range(0, unit.baseStats.selectionSounds.Length - 1)];
             unitedEffectsSource.Play();
+
             base.OnInteractEnter();
 
         }

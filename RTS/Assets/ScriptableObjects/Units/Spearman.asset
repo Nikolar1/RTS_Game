@@ -16,7 +16,7 @@ MonoBehaviour:
   name: Spearman
   unitPrefab: {fileID: 5222890308719365078, guid: c5d4197385eb4af428b43921a535c34c, type: 3}
   icon: {fileID: 7403931477541164701, guid: f6188d0c04f729642b15be80dcb20750, type: 3}
-  spawnTime: 5
+  spawnTime: 4
   actions: {fileID: 0}
   baseStats:
     cost: 100
@@ -78,7 +78,15 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a42b60744c815c947bf14c6f52183ccb, type: 3}
     - {fileID: 8300000, guid: 24da8139e31240842ba7daf3fba3a595, type: 3}
     selectionSounds:
-    - {fileID: 8300000, guid: 07a2d9a0ca3e61c4b8e4657f2c8a4666, type: 3}
+    - {fileID: 8300000, guid: 3a3e69746574d9246bf9098e02b651c1, type: 3}
+    - {fileID: 8300000, guid: b6af101df8d8956449fedc3283c85100, type: 3}
+    - {fileID: 8300000, guid: 5886e8d147710fd41a9f4cae56475fe7, type: 3}
+    - {fileID: 8300000, guid: b3932db8e16684f44822c5a87ff4d5e5, type: 3}
+    - {fileID: 8300000, guid: 0a5993db54e3eac418b305b3d3f2157e, type: 3}
+    - {fileID: 8300000, guid: 87ea3cd99ab6e064c897a2dc795c3a13, type: 3}
     orderSounds:
-    - {fileID: 8300000, guid: e6e3dc9811ebfd2498276de53953a0b7, type: 3}
+    - {fileID: 8300000, guid: 5533e5cf59159d249ac994bed17b1a13, type: 3}
+    - {fileID: 8300000, guid: 14c59f7ed9c69784bb536ba00c689c77, type: 3}
+    - {fileID: 8300000, guid: e40c7fbf149eb7d409b3eda1f0070920, type: 3}
+    - {fileID: 8300000, guid: 7666f41e995c1c441ada9edebb986170, type: 3}
     workingSounds: []

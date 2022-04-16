@@ -64,6 +64,7 @@ namespace NR.RTS.Buildings.Player
         {
             InputManager.InputHandler.instance.selectedBuilding = null;
             transform.GetComponent<Interactable.IBuilding>().OnInteractExit();
+            RTS.Player.VoiceAssistant.instance.PlayBuildingDestroyed();
             Destroy(gameObject);
         }
 
