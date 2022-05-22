@@ -168,9 +168,6 @@ namespace NR.RTS.InputManager {
                                 pU.MoveUnit(hit.transform, false);
                             }
                             break;
-                        case 10:
-                            
-                            break;
                         case 11:
                             foreach (Transform unit in selectedUnits)
                             {

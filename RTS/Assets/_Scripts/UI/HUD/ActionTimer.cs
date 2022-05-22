@@ -50,24 +50,5 @@ namespace NR.RTS.UI.HUD
             
         }
 
-
-        public IEnumerator SpawnQueueTimer()
-        {
-            if (ActionFrame.instance.buildQueue.spawnQueue.Count > 0)
-            {
-                Debug.Log($"Waiting for {ActionFrame.instance.buildQueue.spawnQueue[0]}");
-
-                yield return new WaitForSeconds(ActionFrame.instance.buildQueue.spawnQueue[0]);
-
-                buildQueue.SpawnObject();
-
-               
-
-                if (ActionFrame.instance.buildQueue.spawnQueue.Count > 0)
-                {
-                    StartCoroutine(SpawnQueueTimer());
-                }
-            }
-        }
     }
 }
